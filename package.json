@@ -1,0 +1,17 @@
+{
+  "name": "scmp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node scmpapp.js"
+  },
+  "dependencies": {
+    "ejs": "*",
+    "express":"*",
+    "body-parser":"*",
+    "cookie-parser":"*",
+    "express-session":"*"
+  }
+}
+
+
