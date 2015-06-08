@@ -11,7 +11,20 @@ router.use(function(req,res,next){
 });
 
 
-//  /self/
+
+//工程库
+
+router.use('/project',function(req,res,next){
+  res.loadview('/cloud-self/project.html');
+});
+
+
+//  /资料库/
+router.use('/files',function(req,res,next){
+  res.loadview('/cloud-self/files.html');
+});
+
+
 router.use('/',function(req,res,next){
   res.loadview('/cloud-self/index.html');
 });
