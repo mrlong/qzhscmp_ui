@@ -35,8 +35,8 @@ app.response.loadview=function(filename,params,ismoble){
 
 
 app.use(bodyParser());
-app.use(express.static(__dirname + '/',{ maxAge: 86400000 }));
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/public',{ maxAge: 86400000 }));
+app.use(express.static(__dirname + '/public'));
 
 app.set('views', path.join(__dirname, './'));
 app.set('view engine', 'html');
