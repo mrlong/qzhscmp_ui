@@ -53,7 +53,7 @@ app.use(session({
 
 
 app.use('/',function(req,res,next){ 
-  res.loadview('index.html');
+  res.loadview('home/index.html');
 });
 
 
