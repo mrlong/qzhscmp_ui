@@ -52,11 +52,14 @@ app.use(session({
 }));
 
 
+
+
+
+app.use('/self',require('./router-self'));
+app.use('/ent',require('./router-ent'));
 app.use('/',function(req,res,next){ 
   res.loadview('home/index.html');
 });
-
-
 
 app.listen(3002);
 console.log('qzhscmp-ui stated on port 3002');
