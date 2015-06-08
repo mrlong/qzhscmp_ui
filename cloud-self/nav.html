@@ -2,15 +2,11 @@
   
   <script>
     
-      $(document).ready(function(){
-    
-    $('.list-group a').on('click',function(){
+    //设置当前的焦点 作者：龙仕云
+    var changeNavActive = function(url){
       $('.list-group a[class*="active"]').removeClass('active');
-      $(this).addClass('active');
-    });
-  
-  
-  });
+      $('.list-group a[href="' + url + '"]').addClass('active');
+    };
   
   </script>
   
@@ -27,7 +23,7 @@
             </div>
             <div class="list-group">
 
-              <a href="/self/project" class="list-group-item active ">工程库<span class="badge">3</span></a>
+              <a href="/self/project" class="list-group-item  ">工程库<span class="badge">3</span></a>
               <a href="/self/files" class="list-group-item">资料文件库</a>             
              
               <a href="#" class="list-group-item disabled">
