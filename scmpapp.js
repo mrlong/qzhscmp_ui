@@ -45,9 +45,9 @@ app.set('view cache', false);
 
 app.use(cookieParser());
 app.use(session({
-  name:'mrlongapp',
+  name:'scmp',
   secret: '7895123', 
-  key: 'mrlongapp', 
+  key: 'scmp', 
   cookie: { secure: false,maxAge: 1000 * 60 * 60 * 24 * 1 }  //1天保存
 }));
 
