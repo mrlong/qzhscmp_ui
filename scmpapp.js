@@ -57,6 +57,13 @@ app.use(session({
 
 app.use('/self',require('./router-self'));
 app.use('/ent',require('./router-ent'));
+
+
+//home
+app.use('/register',function(req,res,next){ 
+  res.loadview('home/register.html');
+});
+
 app.use('/',function(req,res,next){ 
   res.loadview('home/index.html');
 });
