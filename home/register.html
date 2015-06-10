@@ -60,11 +60,11 @@
     $("#form1").validation({icon:true});
     $("#form2").validation({icon:true});
     $(".setp-2").hide();
+    $(".setp-3").hide();
     
     $("#button1").on('click',function(event){
       // 2.最后要调用 valid()方法。
       if ($("#form1").valid(this,"内容不完整!")==false){
-       //$("#error-text").text("error!"); 1.0.4版本已将提示直接内置掉，简化前端。
         return false;
       };
       
@@ -77,13 +77,28 @@
     });
     
     $("#button2").on('click',function(){
-      //第二步
-      //alert('ss');
-      $(".setp ul .active").removeClass('active');
-      $("#nav2").addClass('active');
+      if ($("#form2").valid(this,"内容不完整!")==false){
+        return false;
+      };
       
-    
+      $(".setp ul .active").removeClass('active');
+      $("#nav3").addClass('active');
+      $(".setp-1").hide();
+      $(".setp-2").hide();
+      $(".setp-3").show();
     });
+    
+    $("#button3").on('click',function(){
+      
+      $(".setp ul .active").removeClass('active');
+      $("#nav3").addClass('active');
+      $(".setp-1").hide();
+      $(".setp-2").hide();
+      $(".setp-3").show();
+      
+    });
+    
+    
     
   });
   
@@ -218,15 +233,24 @@
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-6">
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                  <a id='button1'  class="btn btn-primary btn-block" role="button" >确定保存</a>
-                  <a id='button1'  class="btn btn-primary btn-block" role="button" >跳过这步</a>
+                  <a id='button2'  class="btn btn-primary btn-block" role="button" >确定保存</a>
+                  <a id='button3'  class="btn btn-primary btn-block" role="button" >跳过这步</a>
                 </div>
               </div>
             </div>
+            
           
           </div>
         
-        </div>
+        </div> <!--第二步完成 -->
+        
+        <div class="setp-3" >
+          <div class="center-block">
+            <p class="lead text-center">关注我们的微信公众平台，你将移动使用我们的服务。</p>
+            <img class="thumbnail center-block" src="/img/qrcode_qzh.jpg">
+            <a href="/" class="btn btn-primary btn-block" role="button">你有账号密码，可以登录系统了。</a>
+          </div>
+        </div> <!-- 第三步完成 -->
       
       
       
@@ -237,6 +261,4 @@
 
   </div>
   
-</body>
-
-</html>
+<% include footer.html %>
