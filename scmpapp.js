@@ -17,6 +17,8 @@ module.exports = app;
 app.response.loadview=function(filename,params,ismoble){
   var myismoble;
   var myparams = {};
+  var viewstyle = this.viewstyle || 'home';
+      
   if(typeof params ==='boolean'){
       myismoble = params;
   }
@@ -26,7 +28,7 @@ app.response.loadview=function(filename,params,ismoble){
   };
 
   if (myismoble == false){
-    this.render('./' + filename,myparams); 
+    this.render('./' + viewstyle + '/'  + filename,myparams); 
   }
   else{
     this.render('./views_moblie/' + filename,myparams);   
@@ -57,16 +59,9 @@ app.use(session({
 
 app.use('/self',require('./router-self'));
 app.use('/ent',require('./router-ent'));
+app.use('/',require('./router-home'));
 
 
-//home
-app.use('/register',function(req,res,next){ 
-  res.loadview('home/register.html');
-});
-
-app.use('/',function(req,res,next){ 
-  res.loadview('home/index.html');
-});
 
 app.listen(3002);
 console.log('qzhscmp-ui stated on port 3002');

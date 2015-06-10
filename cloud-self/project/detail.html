@@ -1,0 +1,38 @@
+<% include ../nav.html %>
+
+<script>
+  
+  $(document).ready(function(){
+  
+    changeNavActive('/self/project');
+    $('[data-toggle="tooltip"]').tooltip();
+    
+  });
+  
+  
+</script>
+  
+  <div class="panel panel-default">
+            
+            
+   <div class="panel-heading" >
+
+        <a href="/self/project">工程列表</a> / 某某工程的信息明细内容
+
+    </div>
+
+  <div class="panel-body" style="padding:0px">
+    <h3 class="page-header" style="margin-top:10px;">1、费用情况</h3>
+
+
+    <h3 class="page-header" style="margin-top:10px;">2、附件列表</h3>
+    
+    
+    <h3 class="page-header" style="margin-top:10px;">3、保存历史</h3>
+  </div>
+    
+ 
+</div>
+          
+  
+<% include ../footer.html %>

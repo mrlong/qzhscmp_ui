@@ -1,10 +1,11 @@
-<% include nav.html %>
+<% include ../nav.html %>
 
 <script>
   
   $(document).ready(function(){
   
     changeNavActive('/self/project');
+    $('[data-toggle="tooltip"]').tooltip();
     
   });
   
@@ -56,7 +57,8 @@
         <td>233.3</td>
         <td>34mb</td>
         <td>一分钟之前</td>
-        <td><a href="#">详情</a></td>
+        <td><a href="/self/project/detail/xxx-xxx-xxx-xxxx" data-toggle="tooltip" title="" data-original-title="工程的附件、保存历史、简约的组价情况">详情</a>
+        <a href="#" data-toggle="tooltip" title="" data-original-title="弹出与预算软件一样的浏览界面">组价</a></td>
       </tr>
       <tr>
         <th scope="row">2</th>
@@ -64,7 +66,7 @@
         <td>23233.2390</td>
         <td>159kb</td>
         <td>2015-05-23 12:23</td>
-        <td><a href="#">详情</a></td>
+        <td><a href="#">详情</a> <a href="#">组价</a></td>
       </tr>
       <tr>
         <th scope="row">3</th>
@@ -72,11 +74,11 @@
         <td>231.2345</td>
         <td>342kb</td>
         <td>2015-04-23 12:23</td>
-        <td><a href="#">详情</a></td>
+        <td><a href="#">详情</a> <a href="#">组价</a></td>
       </tr>
     </tbody>
   </table>
 </div>
           
   
-<% include footer.html %>
+<% include ../footer.html %>
