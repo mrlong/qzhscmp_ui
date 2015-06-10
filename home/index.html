@@ -1,71 +1,56 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>擎洲智慧造价云-做全国最好的造价软件。</title>
+<% include header.html %>
+  
+<style>
+  .carousel .item {
+    height: 400px;
+    background-color: #777;
+  }
+  .carousel-inner > .item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
+  }
 
-    <!-- Bootstrap -->
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/bootstrap/js/bootstrap.min.js"></script>
-    <link href="js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!--    <link href="lib/carousel.css" rel="stylesheet">-->
+  .marketing {
+    margin-top: 30px;
+    margin-bottom: 80px;
+  }
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <style>
-      .carousel .item {
-        height: 400px;
-        background-color: #777;
-      }
-      .carousel-inner > .item > img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        height: 500px;
-      }
-      
-      .marketing {
-        margin-top: 30px;
-        margin-bottom: 80px;
-      }
-      
-      .marketing .col-lg-4 {
-        margin-bottom: 20px;
-        text-align: center;
-      }
-      .marketing h2 {
-        font-weight: normal;
-      }
-      .marketing .col-lg-4 p {
-        margin-right: 10px;
-        margin-left: 10px;
-      }
-      
-      .featurette-divider {
-        margin: 80px 0; /* Space out the Bootstrap <hr> more */
-      }
+  .marketing .col-lg-4 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .marketing h2 {
+    font-weight: normal;
+  }
+  .marketing .col-lg-4 p {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
 
-      /* Thin out the marketing headings */
-      .featurette-heading {
-        font-weight: 300;
-        line-height: 1;
-        letter-spacing: -1px;
-      }
+  .featurette-divider {
+    margin: 80px 0; /* Space out the Bootstrap <hr> more */
+  }
 
+  /* Thin out the marketing headings */
+  .featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  
+  .panel label {
+    color: #333;
+    font-weight:700;
+    text-align: center;
+    text-shadow: 0 0px 0px rgba(0,0,0,.6); 
+  }
+  
 
-    
-    </style>  
-  </head>
-  <body>
+</style>  
+
     <div class="container_full">
       
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -82,10 +67,10 @@
           <div class="container">
             <div class="carousel-caption">
               <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-6" style="text-align:left">
                 <h1>擎洲智慧造价云</h1>
                 <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">已经收录201222工程文件</a></p>
+                <div class="alert alert-success" role="alert"><p class="lead">已经收录 <strong class="text-danger">201222</strong> 个工程文件</p></div>
               </div>
               <div class="col-md-6">
                 <div class="panel panel-info">
@@ -95,13 +80,13 @@
                   <div class="form-group">
                     <label for="inputEmail3" class="col-sm-3 control-label">登录名</label>
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                      <input type="email" class="form-control" id="inputEmail3" placeholder="注册的手机号码">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-3 control-label">密码</label>
+                    <label for="inputPassword3" class="col-sm-3 control-label">密 码</label>
                     <div class="col-sm-9">
-                      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                      <input type="password" class="form-control" id="inputPassword3" placeholder="不少于6位的密码">
                     </div>
                   </div>
                   <div class="form-group">
@@ -152,13 +137,15 @@
           </div>
         </div>
       </div>
+
+        
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+        <span class="sr-only">上一个</span>
       </a>
       <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+        <span class="sr-only">下一个</span>
       </a>
     </div><!-- /.carousel -->
       
