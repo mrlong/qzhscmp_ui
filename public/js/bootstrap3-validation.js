@@ -83,7 +83,7 @@
         });
     };
 
-    $.fn.valid=function(object,options){
+    $.fn.valid=function(object,options,cb){
         if (formState) { // 重复提交则返回
             return false;
         };
@@ -91,12 +91,25 @@
 
         var myobject;
         var myoptions;
+        var mycb;
         if (typeof object === 'object'){
             myobject = $(object);
-            myoptions = options;
+            if(typeof options === 'string'){
+              myoptions = options;
+              mycb = cb;
+            }
+            else{
+              mycb = options;  
+            }
         }
         else{
+          if(typeof object === 'string'){
             myoptions = object;
+            mycb = cb;
+          }
+          else{
+            mycb = object;
+          };
         };
 
         formState = true;
@@ -146,6 +159,8 @@
             };
         };
         //end
+      
+        if(mycb){mycb(validationError);}
 
         return !validationError;        
     }
@@ -294,7 +309,9 @@
             var iconname = error==false?'glyphicon-ok':'glyphicon-remove';
             if(fstyle == 0){
                 controlGroup.find("#valierr").remove();
-                el.after('<span class="help-block" id="valierr">' + errorMsg +'</span>');
+                if(globalOptions.reqmark==true){
+                  el.after('<span class="help-block" id="valierr">' + errorMsg +'</span>');
+                };
                 if (globalOptions.icon===true ){
                   if (el.find('option').length==0){
                     el.after('<span class="glyphicon '+ iconname +' form-control-feedback" aria-hidden="true"></span>');
@@ -317,7 +334,9 @@
             }
             else if (fstyle == 2){
                 controlGroup.find("#valierr").remove();
-                el.parent().after('<span class="help-block" id="valierr">' + errorMsg +'</span>');
+                if (globalOptions.reqmark==true){
+                  el.parent().after('<span class="help-block" id="valierr">' + errorMsg +'</span>');
+                }
                 if (globalOptions.icon===true ){
                   if (el.find('option').length==0){
                     el.after('<span class="glyphicon '+ iconname +' form-control-feedback" aria-hidden="true"></span>');

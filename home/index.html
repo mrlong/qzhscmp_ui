@@ -1,4 +1,6 @@
 <% include header.html %>
+<script src="/js/bootstrap3-validation.js"></script>
+<script src="/js/jquery.cookie.js"></script>
   
 <style>
   .carousel .item {
@@ -86,6 +88,20 @@
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
     $(window).scroll(function(){$(window).scrollTop()>400?$('#scrollUp').removeClass('hidden').addClass('show'):$('#scrollUp').removeClass('show').addClass('hidden');});
+    $('#youname').val($.cookie('yunusername'));
+    
+    $('.loginwin form').validation({reqmark:false,icon:true});
+    $('#login').on('click',function(){
+      if ($(".loginwin form").valid(this,function(err){
+          err==true?$(".loginwin .panel").removeClass('panel-info').addClass('panel-danger'):'';
+        })==false){return false;};
+      
+      //ok 向下执行
+      $.cookie('yunusername',$('#youname').val(),{ path: '/', expires: 30 });
+    });
+    
+    $('.loginwin input').on('focus',function(){$(".loginwin .panel").removeClass('panel-danger').addClass('panel-info')});
+    
   });
   
 </script>
@@ -116,12 +132,12 @@
     <form class="form-horizontal">
       <div class="form-group">
         <div class="col-sm-12">
-          <input type="email" class="form-control" id="inputEmail3" placeholder="注册的手机号码" data-toggle="tooltip" data-placement="left" title="登录名">
+          <input type="text" class="form-control" id="youname" placeholder="注册的手机号码" data-toggle="tooltip" data-placement="left" title="登录名" check-type="mobile required">
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-12">
-          <input type="password" class="form-control" id="inputPassword3" placeholder="不少于6位的密码" data-toggle="tooltip" data-placement="left" title="密码">
+          <input type="password" class="form-control" id="inputPassword3" placeholder="不少于6位的密码" data-toggle="tooltip" data-placement="left" title="密码" check-type="required">
         </div>
       </div>
       <div class="form-group">
@@ -136,7 +152,7 @@
       </div>
       <div class="form-group">
         <div class="col-sm-12 ">
-            <a href="/self"  class="btn btn-primary btn-lg btn-block" role="button">登   录</a>
+            <a href="/self"  class="btn btn-primary btn-lg btn-block" role="button" id='login'>登   录</a>
             <hr style="margin-bottom:0px;">
             <small>你还没有账号？</small>
             <a href="/register" class="btn btn-warning btn-lg btn-block" role="button" style="margin-top: 10px;">免费注册</a>
