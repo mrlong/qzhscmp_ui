@@ -48,8 +48,36 @@
     text-shadow: 0 0px 0px rgba(0,0,0,.6); 
   }
   
+  #scrollUp {
+    background-color: #777;
+    color: #eee;
+    font-size: 40px;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    bottom: 20px;
+    right: 20px;
+    overflow: hidden;
+    width: 46px;
+    height: 46px;
+    border: none;
+    opacity: .8;
+  }
+  
+  #scrollUp:hover{
+    background-color:#333; 
+  }
+  
 
 </style>  
+  
+<script>
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    $(window).scroll(function(){$(window).scrollTop()>400?$('#scrollUp').removeClass('hidden').addClass('show'):$('#scrollUp').removeClass('show').addClass('hidden');});
+  });
+  
+</script>
 
     <div class="container_full">
       
@@ -219,5 +247,11 @@
     </div>  
       
     </div>
+  
+
+  <a  class="hidden" id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="回到顶端">
+    <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+  </a>
+
 
 <% include footer.html %>
