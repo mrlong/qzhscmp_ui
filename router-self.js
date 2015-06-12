@@ -28,6 +28,11 @@ router.use('/files',function(req,res,next){
   res.loadview('files.html');
 });
 
+//指标
+router.use('/zb',function(req,res,next){
+  res.loadview('zb/index.html');
+});
+
 
 router.use('/',function(req,res,next){
   res.loadview('index.html');
