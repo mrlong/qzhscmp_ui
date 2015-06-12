@@ -34,6 +34,22 @@ router.use('/zb',function(req,res,next){
 });
 
 
+//个人资料
+router.use('/profile/headimg',function(req,res,next){
+  res.loadview('profile/headimg.html');
+});
+
+router.use('/profile/weixin',function(req,res,next){
+  res.loadview('profile/weixin.html');
+});
+
+router.use('/profile',function(req,res,next){
+  res.loadview('profile/index.html');
+});
+
+
+
+
 router.use('/',function(req,res,next){
   res.loadview('index.html');
 });

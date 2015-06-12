@@ -1,0 +1,78 @@
+<% include ../nav.html %>
+  
+<style>
+  #formwin{
+    padding: 30px;  
+  }
+  
+</style>  
+<script>
+  changeNavActive('/self/profile');
+  $(document).ready(function(){
+  
+  });
+</script>
+<!-- 内部导航 -->
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="/self/profile">个人资料</a></li>
+  <li role="presentation"><a href="/self/profile/headimg">修改头像</a></li>
+  <li role="presentation"><a href="/self/profile/weixin">绑定微信</a></li>
+</ul>
+
+  <div id="formwin">
+  
+  <form>
+    <div class="form-group">
+      <label for="yunaddcode">邀请暗号码</label>
+      <input type="text" name="yunaddcode" class="form-control" id="yunaddcode" >
+      <span id="helpBlock" class="help-block">企业邀请你加入时，提供你的登录名和这个邀请暗号码就会自己加入你为企业成员.</span>
+    </div>
+    
+    <hr>
+    <div class="form-group">
+      <label for="yunname">真实姓名</label>
+      <input type="text" name="yunname" class="form-control" id="yunname" >
+    </div>
+    <div class="form-group">
+      <label for="youarea">所在地</label>
+      <input type="text" name="youarea" class="form-control" id="youarea" >
+    </div>
+    
+    <div class="form-group">
+      <label for="exampleInputPassword1">单位名称</label>
+      <select class="form-control" id="youarea" check-type="required">
+        <option></option>
+        <option>地区1</option>
+        <option>地区2</option>
+        <option>地区3</option>
+        <option>地区4</option>
+        <option>地区5</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="unittyle">单位性质</label>
+      <select class="form-control" id="unittyle" check-type="required">
+        <option></option>
+        <option>性质1</option>
+        <option>性质2</option>
+        <option>性质3</option>
+        <option>性质4</option>
+        <option>性质5</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="unitaddr">单位地址</label>
+      <input type="text" name="unitaddr" id="unitaddr" class="form-control" id="exampleInputPassword1" >
+    </div>
+
+    <button type="submit" class="btn btn-primary">保存</button>
+  </form>
+    
+  
+  </div>
+
+
+  
+<% include ../footer.html %>
