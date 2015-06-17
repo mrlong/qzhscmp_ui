@@ -33,6 +33,10 @@ router.use('/zb/template',function(req,res,next){
   res.loadview('zb/template.html');
 });
 
+router.use('/zb/diff',function(req,res,next){
+  res.loadview('zb/diff.html');
+});
+
 router.use('/zb',function(req,res,next){
   res.loadview('zb/index.html');
 });
