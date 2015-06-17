@@ -29,6 +29,10 @@ router.use('/files',function(req,res,next){
 });
 
 //指标
+router.use('/zb/template',function(req,res,next){
+  res.loadview('zb/template.html');
+});
+
 router.use('/zb',function(req,res,next){
   res.loadview('zb/index.html');
 });

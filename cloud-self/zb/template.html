@@ -1,0 +1,96 @@
+<% include ../nav.html %>
+
+<style>
+  .rowpanel{
+    padding: 10px;
+  }
+  
+  .thumbnail h3{
+    margin-top:0px;
+    margin-bottom: 5px;
+  };
+  
+  
+</style>  
+<script>
+  
+  changeNavActive('/self/zb');
+  
+  $(document).ready(function(){
+    $('.funnote').hide();
+    $(".thumbnail").hover(function(){
+      $(this).find('.funnote').show();
+      $(this).css('border','2px solid #337ab7');
+      $(this).find('a').removeClass('btn-default').addClass('btn-primary');
+    },function(){
+       $(this).find('.funnote').hide();
+       $(this).css('border','1px solid #ddd');
+       $(this).find('a').removeClass('btn-primary').addClass('btn-default');
+    });
+  
+  });
+  
+  
+</script>
+
+<ul class="nav nav-tabs">
+  <li role="presentation"><a href="/self/zb">分析结果</a></li>
+  <li role="presentation" class="active"><a href="/self/zb/template">增加分析</a></li>
+</ul>
+  
+
+<div class="rowpanel">
+<div class="row">
+  <div class="col-sm-6 col-md-6">
+    <div class="thumbnail">
+      <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+       <div class="caption">
+        <h3 id="thumbnail-label">功能1<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+        <p style="position: absolute;top: 40%;width: 88%;" class="funnote">功能说明1 Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        <p><a href="#" class="btn btn-default btn-block" role="button">选择这个模板</a> </p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-sm-6 col-md-6">
+    <div class="thumbnail">
+     <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+      <div class="caption">
+        <h3 id="thumbnail-label">功能2<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+        <p style="position: absolute;top: 40%;width: 88%;" class="funnote">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        <p><a href="#" class="btn btn-default btn-block" role="button">选择这个模板</a> </p>
+      </div>
+    </div>
+  </div>
+  
+</div> <!-- row -->
+  
+<div class="row">
+  <div class="col-sm-6 col-md-6">
+    <div class="thumbnail">
+      <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+      <div class="caption">
+        <h3 id="thumbnail-label">功能3<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+        <p style="position: absolute;top: 40%;width: 88%;" class="funnote">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        <p><a href="#" class="btn btn-default btn-block" role="button">选择这个模板</a> </p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-sm-6 col-md-6">
+    <div class="thumbnail">
+     <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+      <div class="caption">
+        <h3 id="thumbnail-label">功能4<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+        <p style="position: absolute;top: 40%;width: 88%;" class="funnote">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        <p><a href="#" class="btn btn-default btn-block" role="button">选择这个模板</a> </p>
+      </div>
+    </div>
+  </div>
+  
+</div> <!-- row -->
+
+<button class="btn btn-default ">增加模板</button>
+</div>
+  
+<% include ../footer.html %>
