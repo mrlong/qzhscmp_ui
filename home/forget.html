@@ -1,0 +1,103 @@
+<% include header.html %>
+<script src="/js/bootstrap3-validation.js"></script>
+<script src="/js/jquery.cookie.js"></script>
+
+<style>
+  
+  
+  .jumbotron{
+    height: 200px; 
+    padding: 0px;
+    margin-bottom: 0px;
+  }
+  .jumbotron img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 200px; 
+  }
+  
+  .setp-conent{
+    margin-top: 20px;
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+  
+  
+</style>
+<script>
+  $(document).ready(function(){
+  
+    $('#moblie').val($.cookie('yunusername'));
+    $("form").validation({icon:true});
+    $('[data-toggle="tooltip"]').tooltip();
+    
+    $('#bntok').on('click',function(){
+       if ($("form").valid(this,"内容不完整!")==false){
+        return false;
+      };
+      
+      //后面处理采用ajax的方式
+      //成功之后回写 $.cookie('yunusername','xxxxxxxx') 
+    });
+  });
+  
+</script>
+
+  <div class="container_full">
+ 
+    <div class="jumbotron">
+     <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+    </div>
+    
+    <form  class="form-horizontal setp-conent">
+      <div class="form-group">
+        <label for="moblie" class="col-xs-2 control-label">手机号</label>
+        <div class="col-xs-6">
+          <input type="text" class="form-control" id="moblie"  placeholder="输入登录的手机号码" check-type="mobile required">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone_code" class="col-xs-2 control-label">校验码</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" id="phone_code" check-type="required" >
+                            
+        </div>
+
+       
+      </div>
+      
+      <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-6">
+         <button class="btn btn-success" type="button"  data-toggle="tooltip" data-placement="top" title="校验码会出短信的方式发到你的注册手机上">获取校验码</button>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="inputPassword1" class="col-xs-2 control-label">设置密码</label>
+        <div class="col-xs-6">
+          <input type="password" class="form-control" id="inputPassword1" placeholder="Password" check-type="required">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword2" class="col-xs-2 control-label">确认密码</label>
+        <div class="col-xs-6">
+          <input type="password" class="form-control" id="inputPassword2" placeholder="Password" check-type="required">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-6">
+          <a id='bntok'  class="btn btn-primary btn-block" role="button" >确定</a>
+         </div>
+      </div>
+      
+    </form>
+      
+      
+
+  </div>
+  
+<% include footer.html %>

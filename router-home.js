@@ -15,9 +15,15 @@ router.use('/register',function(req,res,next){
   res.loadview('register.html');
 });
 
+router.get('/forget',function(req,res,next){
+  res.loadview('forget.html');
+});
+
 router.use('/',function(req,res,next){ 
   res.loadview('index.html');
 });
+
+
 
 
 module.exports=router;
