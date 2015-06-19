@@ -1,0 +1,97 @@
+<% include ../nav.html %>
+
+<script>
+  
+  $(document).ready(function(){
+    changeNavActive('/ent/member');
+  });
+  
+  
+</script>
+  
+<style>
+  
+  .tabletool{
+    margin-left: 10px;
+    margin-top: 10px; 
+  }
+  
+</style>
+  
+  <div class="panel panel-default">
+            
+            
+   <div class="panel-heading" >
+
+        企业成员
+
+    </div>
+
+  <div class="panel-body" style="padding:0px">
+
+      <div class="row">
+      <div class="col-md-6">
+        <div class="tabletool">
+          <button onclick="window.location.href('/ent/member/add')" role="button" class="btn btn-default" ><span class="glyphicon glyphicon-user" aria-hidden="true"> 邀请成员</button> 
+          <button class="btn btn-default" ><span class="glyphicon glyphicon-folder-close" aria-hidden="true"> 操作2</button> 
+        </div>
+      </div>
+      <div class="col-md-6">
+      <div class="pull-right">
+        <form class="navbar-form navbar-left">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="查找内容..." width="200px">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Go!</button>
+          </span>
+        </div><!-- /input-group -->
+        </form>
+     </div>  
+    </div>    
+
+    </div> <!-- row --> 
+
+
+
+
+   </div>
+  <table class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>妮称|姓名</th>
+        <th>部门</th>
+        <th>类型</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>mrlong|A某某</td>
+        <td>安装部</td>
+        <td>管理员</td>
+        <td> <a href="/ent/member/edit/XXXXXXX">修改</a></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>B某某</td>
+        <td>市场部</td>
+        <td>云主</td>
+        <td> <a href="/ent/member/edit/XXXXXXX">修改</a></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>C某某</td>
+        <td>园林部</td>
+        <td>成员</td>
+        <td> <a href="/ent/member/edit/XXXXXXX">修改</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+          
+  
+<% include ../footer.html %>
+  

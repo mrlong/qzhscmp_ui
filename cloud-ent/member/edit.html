@@ -1,0 +1,80 @@
+<% include ../nav.html %>
+<script src="/js/bootstrap3-validation.js"></script>
+<script>
+  
+  $(document).ready(function(){
+    changeNavActive('/ent/member');
+    $('form').validation({icon:true});
+  
+    $('#btn1').on('click',function(){
+      if ($("form").valid(this,"内容不完整!")==false){
+        return false;
+      };
+      
+      //ok
+    
+    });
+  });
+  
+  
+</script>
+
+<style>
+
+  .content{
+    padding: 50px; 
+  }
+  
+</style>
+
+<h1 class="page-header" style="margin-top:0px;">修改成员信息</h1>
+  
+<div class="content">
+  todo: 只有管理员或云主才有权限修改内容
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="unitaddr" class="col-xs-2 control-label">登录名</label>
+      <div class="col-xs-6">
+         <p class="form-control-static">13835656459</p>
+      </div>
+    </div> 
+    
+    <div class="form-group">
+      <label for="youunit" class="col-xs-2 control-label">部门</label>
+      <div class="col-xs-6">
+        <input type="text" class="form-control" id="youunit" check-type="required">
+      </div>
+    </div> 
+    
+    <div class="form-group">
+      <label for="youunit" class="col-xs-2 control-label">类型</label>
+      <div class="col-xs-6">
+        <label class="radio-inline">
+          <input type="radio" name="youtype" id="inlineRadio1" value="成员" checked> 成员
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="youtype" id="inlineRadio2" value="管理员"> 管理员
+        </label>
+      </div>
+    </div> 
+    
+    
+    <div class="col-xs-offset-2 col-xs-10">
+      <div class="checkbox ">
+        <label>
+          <input type="checkbox" id="chkcy" >禁用 
+        </label>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-xs-offset-2 col-xs-6">
+        <a id='btn1'  class="btn btn-primary btn-block" role="button" >确定</a>
+       </div>
+    </div>
+</form>
+  
+</div>
+          
+  
+<% include ../footer.html %>
