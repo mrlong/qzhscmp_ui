@@ -3,6 +3,14 @@
 <script>
   changeNavActive('/self/profile');
 </script>
+  
+<style>
+  #content {
+    padding: 50px; 
+  }
+  
+</style>
+  
 <!-- 内部导航 -->
 <ul class="nav nav-tabs">
   <li role="presentation" ><a href="/self/profile">个人资料</a></li>
@@ -10,8 +18,15 @@
   <li role="presentation" class="active"><a href="/self/profile/weixin">绑定微信</a></li>
 </ul>
 
-
-<h1>微信处理</h1>
-
+<div id="content">
+  
+  todo: 表budgetuser内buu_wxopenid不为空说明账号绑定了。否则提示可以取消绑定，取消绑定就是清空buu_wxopenid的信息
+  
+  你微信已绑定账号。
+  <button type="button" class="btn btn-primary">取消绑定</button>
+  <img class="thumbnail center-block" src="/img/qrcode_qzh.jpg">
+  
+  
+</div>
   
 <% include ../footer.html %>
