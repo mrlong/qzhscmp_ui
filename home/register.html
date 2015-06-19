@@ -20,6 +20,7 @@
     margin-left: 200px;
     margin-right: 200px; 
   }
+  
   .line{
     border-bottom: 1px solid #EEE; 
   }
@@ -40,6 +41,21 @@
 </style>
   
 <script >
+  
+  var wait=60;
+  function time(obj) { 
+    if (wait == 0) { 
+      obj.button('reset');
+      wait = 60; 
+    } else { 
+      obj.text("重新获取 (" + wait + ") "); 
+      wait--; 
+      setTimeout(function() { 
+        time(obj) 
+        }, 1000) 
+    }; 
+  }; 
+  
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
     $("#form1").validation({icon:true});
@@ -50,6 +66,13 @@
     $("#button1").on('click',function(event){
       // 2.最后要调用 valid()方法。
       if ($("#form1").valid(this,"内容不完整!")==false){
+        return false;
+      };
+      
+      
+      //协议处理
+      if (document.getElementById("chkcy").checked==false){
+        alert('阅读协议，并选择我已经阅读并同意。');
         return false;
       };
       
@@ -83,6 +106,10 @@
       
     });
     
+    //获取验证码
+    $('#bntphonecode').on('click', function () {
+      time($(this).button('loading'));
+    });
     
     
   });
@@ -136,23 +163,22 @@
           <div class="form-group">
             <label for="phone_code" class="col-xs-2 control-label">校验码</label>
             <div class="col-xs-6">
-              <div class="input-group">
-                <input type="text" class="form-control" id="phone_code" >
-                <span class="input-group-btn">
-                  <button class="btn btn-success" type="button"  data-toggle="tooltip" data-placement="top" title="校验码会出短信的方式发到你的注册手机上">获取校验码</button>
-                </span>                
-              </div>
+                <input type="text" class="form-control" id="phone_code" check-type="required" >              
             </div>
           </div>
-          
-          
+            
+          <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-6">
+               <button id='bntphonecode' class="btn btn-success" type="button" data-loading-text="获取中..." autocomplete="off" data-toggle="tooltip" data-placement="top" title="校验码会出短信的方式发到你的注册手机上">获取校验码</button>
+             </div>
+          </div>
           
           
           <div class="form-group">
             <div class="col-xs-offset-2 col-xs-10">
               <div class="checkbox ">
                 <label>
-                  <input type="checkbox"> 我已经阅读并同意 <a href="#" >擎洲云用户协议</a>
+                  <input type="checkbox" id="chkcy" > 我已经阅读并同意 <a href="#" >擎洲云用户协议</a>
                 </label>
               </div>
             </div>
@@ -247,8 +273,8 @@
       
       
       </div>  
-    </form>
       
+    </form>
       
 
   </div>
