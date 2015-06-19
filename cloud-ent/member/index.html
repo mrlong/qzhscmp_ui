@@ -4,6 +4,10 @@
   
   $(document).ready(function(){
     changeNavActive('/ent/member');
+    
+    $('#btnadd').on('click',function(){
+     window.location.href= "/ent/member/add";
+    });
   });
   
   
@@ -32,7 +36,7 @@
       <div class="row">
       <div class="col-md-6">
         <div class="tabletool">
-          <button onclick="window.location.href('/ent/member/add')" role="button" class="btn btn-default" ><span class="glyphicon glyphicon-user" aria-hidden="true"> 邀请成员</button> 
+          <button id="btnadd" role="button" class="btn btn-default" ><span class="glyphicon glyphicon-user" aria-hidden="true"> 邀请成员</button> 
           <button class="btn btn-default" ><span class="glyphicon glyphicon-folder-close" aria-hidden="true"> 操作2</button> 
         </div>
       </div>
