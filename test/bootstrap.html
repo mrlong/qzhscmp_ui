@@ -54,7 +54,7 @@
   }; 
   
   $(document).ready(function(){
-    
+    $('a').popover({html:true,title:'ssssss',template:'<div class="popover" role="tooltip"><div class="arrow"></div><h1 class="popover-title"></h1><div class="popover-content"></div></div>'});
     $('#myButton').on('click', function () {
        var btn = $(this).button('loading');
        time(btn);
@@ -82,6 +82,12 @@
    });  
 </script>
 
+    <a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" 
+       data-trigger="focus" title="Dismissible popover" 
+       data-placement="bottom" 
+       data-content="And here's some amazing content. It's very engaging. Right?">可消失的弹出框</a>
+    
 
+    
   </body>
 </html>

@@ -3,3 +3,29 @@
 .panel-footer .pagination{
     margin: 0px; 
 }
+
+/*下拉菜单有尖角*/
+.dropdown .dropdown-menu:after, .dropdown .dropdown-menu:before, 
+.dropdown-toggle+.dropdown-menu:after, .dropdown-toggle+.dropdown-menu:before {
+  position: absolute;
+  top: -8px;
+  left: 16px;
+  display: block;
+  content: " ";
+  width: 0;
+  height: 0;
+  border-bottom: 8px solid #fff;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+      
+.dropdown .dropdown-menu, .dropdown-toggle+.dropdown-menu {
+  margin-top: 1px!important;
+}
+
+/*右边下拉菜单的处理，如头像的下拉等等*/
+.pull-right .dropdown .dropdown-menu:after, .pull-right .dropdown .dropdown-menu:before, 
+.pull-right .dropdown-toggle+.dropdown-menu:after, .pull-right .dropdown-toggle+.dropdown-menu:before {
+  right: 16px;
+  left: auto;
+}
