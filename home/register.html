@@ -108,7 +108,13 @@
     
     //获取验证码
     $('#bntphonecode').on('click', function () {
-      time($(this).button('loading'));
+      var phonecode = $("#moblie").val();
+      if(phonecode.length==11){
+        time($(this).button('loading'));
+      }
+      else{
+        alert('手机号码有误，无法获取验证码');
+      }
     });
     
     
