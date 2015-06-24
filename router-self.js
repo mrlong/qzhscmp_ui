@@ -55,6 +55,12 @@ router.use('/profile',function(req,res,next){
   res.loadview('profile/index.html');
 });
 
+//我的信息
+
+router.use('/message',function(req,res,next){
+  res.loadview('message/index.html');
+});
+
 
 
 
