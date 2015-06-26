@@ -59,6 +59,7 @@ app.use(session({
 
 app.use('/self',require('./router-self'));
 app.use('/ent',require('./router-ent'));
+app.use('/know',require('./router-know')); //知识库
 app.use('/',require('./router-home'));
 
 
