@@ -5,6 +5,18 @@
     padding: 30px;  
   }
   
+  .navmenuitem{
+    padding: 5px;
+/*    border-top :1px solid #d3c8be;*/
+    border-left :1px solid #d3c8be;
+    border-right: 1px solid #d3c8be;
+  }
+  
+  .search {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
 </style>  
 <script>
   changeNavActive('/know/law');
@@ -13,6 +25,52 @@
   });
 </script>
   
+<div class="lawconent">
+  <div class="navmenu">
+    <div class="navmenuitem" style="border-bottom :1px dashed #d3c8be; border-top :1px solid #d3c8be;">
+     <strong  class=" pull-left">适用地区:</strong><ul class="list-inline"><li style="margin-left: 15px;"> 全部</li><li> 全部</li><li> 全部</li></ul>
+    </div>
+    
+    <div class="navmenuitem" style="border-bottom :1px dashed #d3c8be;">
+     <strong  class="pull-left">发布时间:</strong> <ul class="list-inline"><li style="margin-left: 15px;"> 全部</li><li> 全部</li><li> 全部</li></ul>
+    
+    </div>
+    
+    <div class="navmenuitem" style="border-bottom :1px solid #d3c8be;">
+      <strong  class="pull-left">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</strong><ul class="list-inline"><li style="margin-left: 15px;"> 全部</li><li> 全部</li><li> 全部</li></ul>
+    </div>
+    
+    
+  </div>
+  
+<!-- 查找 -->
+  <div class="search">
+    <div class="row">
+    <div class="col-md-6">
+    </div>
+    <div  class="col-md-6">
+    <div class="pull-right">
+      <form>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="在筛选结果中按文件名、文件号或内容搜索" width="100px">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+      </div><!-- /input-group -->
+      </form>
+     </div> 
+    </div>
+    </div>
+  </div>
+
+  <!-- 内容 -->
+  
+  <div class="rowlist">
+  
+  
+  </div>
+  
+</div>
 
 
 
