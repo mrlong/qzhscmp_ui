@@ -16,28 +16,66 @@
     margin-top: 5px;
     margin-bottom: 5px;
   }
+  
+  .table tbody tr td{
+    border-top:0px solid #ddd;
+    
+  }
+  
+  .table .source-title{
+    list-style-type:circle; 
+  }
+  
+  li .active {
+    color: #2f3795; 
+    font-weight:700;
+  }
+  
+  li a{
+    color: #333; 
+  }
+
 
 </style>  
 <script>
   changeNavActive('/know/law');
   $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
   
+  
+    $("li a").on('click',function(){
+      var that = $(this);
+      that.parent().parent().find('.active').removeClass('active');
+      that.addClass('active');
+    });
   });
+  
+  
 </script>
   
 <div class="lawconent">
   <div class="navmenu">
     <div class="navmenuitem" style="border-bottom :1px dashed #d3c8be; border-top :1px solid #d3c8be;">
-     <strong  class=" pull-left">适用地区:</strong><ul class="list-inline"><li style="margin-left: 15px;"> 全部</li><li> 全部</li><li> 全部</li></ul>
+     <strong  class=" pull-left">适用地区:</strong><ul class="list-inline">
+      <li style="margin-left: 15px;" ><a href="#" class="active">全部</a></li>
+      <li><a href="#"> 杭州</a></li>
+      <li><a href="#"> 宁波</a></li>
+    </ul>
     </div>
     
     <div class="navmenuitem" style="border-bottom :1px dashed #d3c8be;">
-     <strong  class="pull-left">发布时间:</strong> <ul class="list-inline"><li style="margin-left: 15px;"> 全部</li><li> 全部</li><li> 全部</li></ul>
+     <strong  class="pull-left">发布时间:</strong> <ul class="list-inline">
+      <li style="margin-left: 15px;" ><a href="#" class="active">全部</a></li>
+      <li ><a href="#">2015年</a></li>
+      <li><a href="#">2014年</a></li></ul>
     
     </div>
     
     <div class="navmenuitem" style="border-bottom :1px solid #d3c8be;">
-      <strong  class="pull-left">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</strong><ul class="list-inline"><li style="margin-left: 15px;"> 全部</li><li> 全部</li><li> 全部</li></ul>
+      <strong  class="pull-left">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</strong><ul class="list-inline">
+      <li style="margin-left: 15px;" class="active"><a href="#" class="active">全部</a>
+      </li><li><a href="#"> 取费规则</a></li>
+      <li><a href="#"> 定额</a></li></ul>
     </div>
     
     
@@ -66,9 +104,51 @@
   <!-- 内容 -->
   
   <div class="rowlist">
-  
+    <table class="table table-hover">
+      <tr>
+        <td class="source-title" ><a href="/know/law/centent/XXXXXXXX" target="_blank" data-toggle="tooltip" data-placement="top" title="住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》、《通用安装工程消耗量定额》、《市政工程消耗量定额》、《建设工程施工机械台班费用编制规则》、《建设工程施工仪器仪表台班费用编制规则》的通知">住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》</a></td>
+        <td class="source" nowrap><a href="#">建标[2015]34号</a></td>
+        <td class="source-date" nowrap>2015-03-13</td>
+      </tr>
+      
+      <tr>
+        <td class="source-title" ><a href="/know/law/centent/XXXXXXXX" target="_blank" data-toggle="tooltip" data-placement="top" title="住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》、《通用安装工程消耗量定额》、《市政工程消耗量定额》、《建设工程施工机械台班费用编制规则》、《建设工程施工仪器仪表台班费用编制规则》的通知">住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》</a></td>
+        <td class="source" nowrap><a href="#">建标[2015]34号</a></td>
+        <td class="source-date" nowrap>2015-03-13</td>
+      </tr>
+      
+      <tr>
+        <td class="source-title" ><a href="/know/law/centent/XXXXXXXX" target="_blank" data-toggle="tooltip" data-placement="top" title="住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》、《通用安装工程消耗量定额》、《市政工程消耗量定额》、《建设工程施工机械台班费用编制规则》、《建设工程施工仪器仪表台班费用编制规则》的通知">住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》</a></td>
+        <td class="source" nowrap><a href="#">建标[2015]34号</a></td>
+        <td class="source-date" nowrap>2015-03-13</td>
+      </tr>
+      
+      <tr>
+        <td class="source-title"><a href="/know/law/centent/XXXXXXXX" target="_blank"  data-toggle="tooltip" data-placement="top" title="住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》、《通用安装工程消耗量定额》、《市政工程消耗量定额》、《建设工程施工机械台班费用编制规则》、《建设工程施工仪器仪表台班费用编制规则》的通知">住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》</a></td>
+        <td class="source" nowrap><a href="#">建标[2015]34号</a></td>
+        <td class="source-date" nowrap>2015-03-13</td>
+      </tr>
+    </table>
   
   </div>
+  
+  
+  <div class="pager">
+    <div class="pagerbar">
+      <a class="first disabled" href="javascript:;" title="首页"></a>
+      <a class="disabled" href="javascript:;">上一页</a>
+      <a class="current" href="javascript:;">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <span class="ellipsis">…</span>
+      <a href="#">下一页</a>
+      <a class="last" href="#" title="末页">
+      </a><span class="addition"><span class="redirect">跳转到<input class="pn" value="2" name="pn" type="text" data-toggle="tooltip" data-placement="top" title="共10页">页<a class="go" href="javascript:;" onclick="var $pn=this.parentNode.getElementsByTagName('input')[0].value||1;$pn=/[^\d]/g.test($pn)?0:$pn;$pn=Math.min(Math.max($pn, 1),100);location.href='http://www.qzhyun.com/zhaopin/?dqs=070020&amp;curPage=$pn$'.replace(/\$pn\$/ig, $pn-1);return false;">确定</a></span></span>
+    </div>
+  </div>
+  
   
 </div>
 

@@ -14,9 +14,15 @@ router.use(function(req,res,next){
 //知识库
 
 //法律法则
+router.use('/law/centent/:guid',function(req,res,next){
+  res.loadview('law/centent.html');
+});
+
 router.use('/law',function(req,res,next){
   res.loadview('law/index.html');
 });
+
+
 
 router.use('/',function(req,res,next){
   res.loadview('index.html');
