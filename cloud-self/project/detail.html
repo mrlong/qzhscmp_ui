@@ -1,38 +1,293 @@
 <% include ../nav.html %>
+<script src="/js/bootstrap3-validation.js"></script>
 
 <script>
   
   $(document).ready(function(){
-  
+    $("#gcfl-win").hide();
+    $("form").validation({icon:true,reqmark:false});
     changeNavActive('/self/project');
     $('[data-toggle="tooltip"]').tooltip();
     
+  
+    $("#gcfl").on('focus',function(){
+      var that = $(this);
+      $("#gcfl-win").show();
+    });
+      
+    
+    $(".list-inline li").on('click',function(){
+      var that = $(this);
+      $("#gcfl").val(that.text());
+    });
+    
+    $("#savetodb").on('click',function(){
+      if ($("form").valid(this,"内容不完整!")==false){
+        return false;
+      };
+      
+      //保存到库了
+    });
+    
+  }).click(function (e){
+    e = e || window.event;
+    if ( $(e.target.parentNode).attr('class') != 'panel panel-default' && e.target.id != 'gcfl' && 
+         $(e.target.parentNode).attr('class') !='dl-horizontal' )
+    {
+      $('#gcfl-win').hide();
+    }
   });
   
   
 </script>
   
-  <div class="panel panel-default">
-            
-            
-   <div class="panel-heading" >
+<style>
+  
+  .dl-horizontal{
+    margin-bottom: 0px; 
+  }
+  .dl-horizontal dt{
+   width:80px; 
+  }
+  
+.dl-horizontal dd {
+  margin-left: 60px;
+  }
+  
+  .list-inline li {background:fffff}
+  .list-inline li:hover{background:#7c73be; filter : alpha(opacity=20);}
+  
 
-        <a href="/self/project">工程列表</a> / 某某工程的信息明细内容
+  .checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline {
+    margin-top: 0;
+    margin-left: 0px;
+  }
+</style>
+  
 
+
+  
+<h2 class="page-header" style="margin-top:0px;">工程概况</h2>
+  
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="gcname" class="col-sm-2 control-label">工程名称</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="gcname" check-type="required">
     </div>
-
-  <div class="panel-body" style="padding:0px">
-    <h3 class="page-header" style="margin-top:10px;">1、费用情况</h3>
-
-
-    <h3 class="page-header" style="margin-top:10px;">2、附件列表</h3>
-    
-    
-    <h3 class="page-header" style="margin-top:10px;">3、保存历史</h3>
   </div>
+  
+  <div class="form-group">
+    <label for="gcfl" class="col-sm-2 control-label">工程分类</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="gcfl" check-type="required">
+    </div>
+  </div>
+  
+   <div class="form-group">
+    <div id="gcfl-win" class="col-sm-offset-2 col-sm-10" style="margin-top:-14px;">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <dl class="dl-horizontal">
+            <dt>居住建筑</dt>
+            <dd><ul class="list-inline"><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li></ul></dd>
+          </dl>
+          <dl class="dl-horizontal">
+            <dt>办公建筑</dt>
+            <dd><ul class="list-inline"><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li><li>住宅</li></ul></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="gcms" class="col-sm-2 control-label">建筑面积</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="gcms" check-type="required">
+    </div>
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="zjlb" class="col-sm-2 control-label">造价类别</label>
+    <div class="col-sm-10">
+      <label class="radio-inline">
+        <input type="radio" name="zjlb" id="zjlb" value="招标控制价" > 招标控制价
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="zjlb" id="zjlb" value="投标报价"> 投标报价
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="zjlb" id="zjlb" value="合同价"> 合同价
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="zjlb" id="zjlb" value="结算价"> 结算价
+      </label>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="qdlb" class="col-sm-2 control-label">清单类别</label>
+    <div class="col-sm-10">
+      <label class="radio-inline">
+        <input type="radio" name="qdlb" id="qdlb" value="2013清单"> 2013清单
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="qdlb" id="qdlb" value="2008清单"> 2008清单
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="qdlb" id="qdlb" value="2003清单"> 2003清单
+      </label>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="delb" class="col-sm-2 control-label">定额类别</label>
+    <div class="col-sm-10">
+      <label class="radio-inline">
+        <input type="radio" name="delb" id="delb" value="2010定额"> 2010定额
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="delb" id="delb" value="2003定额"> 2003定额
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="delb" id="delb" value="94定额"> 94定额
+      </label>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="gcbz" class="col-sm-2 control-label">工程备注</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="gcbz" >
+    </div>
+  </div>
+  
+  
+ <h4 class="page-header" style="margin-top:0px;">扩展信息</h4>
+  
+  <div class="form-group">
+    <label for="dq" class="col-sm-2 control-label">地区选择</label>
+    <div class="col-sm-10">
+      <label class="radio-inline">
+        <input type="radio" name="dq" id="dq" value="杭州市"> 杭州市
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="dq" id="dq" value="宁波市"> 宁波市
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="dq" id="dq" value="温州市"> 温州市
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="dq" id="dq" value="温州市"> 嘉兴市
+      </label>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="dsss" class="col-sm-2 control-label">地上层数</label>
+    <div class="col-sm-10">
+      <label class="radio-inline">
+        <input type="radio" name="dsss" id="dsss" value="低层（1-3层）"> 低层（1-3层）
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="dsss" id="dsss" value="多层（4-6层）"> 多层（4-6层）
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="dsss" id="dsss" value="中高层（7-9层）"> 中高层（7-9层）
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="dsss" id="dsss" value="高层（10-30层）">高层（10-30层）
+      </label>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="dxss" class="col-sm-2 control-label">地下层数</label>
+    <div class="col-sm-10">
+      <label class="radio-inline">
+        <input type="radio" name="dxss" id="dxss" value="无地下室"> 无地下室
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="dxss" id="dxss" value="地下1层"> 地下1层
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="dxss" id="dxss" value="地下2层"> 地下2层
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="dxss" id="dxss" value="地下3层及以上">地下3层及以上
+      </label>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="jglx" class="col-sm-2 control-label">结构类型</label>
+    <div class="col-sm-10">
+      <label class="radio-inline">
+        <input type="radio" name="jglx" id="jglx" value="框架结构"> 框架结构
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="jglx" id="jglx" value="剪力墙结构"> 剪力墙结构
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="jglx" id="jglx" value="框架剪力墙结构"> 框架剪力墙结构
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="jglx" id="jglx" value="砖混结构">砖混结构
+      </label>
+      
+       <label class="radio-inline">
+        <input type="radio" name="jglx" id="jglx" value="框架筒体结构">框架筒体结构
+      </label>
+    </div>
+  </div>
+  
+  
+  <div class="form-group">
+    <label for="jslx" class="col-sm-2 control-label">基础类型</label>
+    <div class="col-sm-10">
+      <label class="radio-inline">
+        <input type="radio" name="jslx" id="jslx" value="不包含基础"> 不包含基础
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="jslx" id="jslx" value="独立基础"> 独立基础
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="jslx" id="jslx" value="条形基础"> 条形基础
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="jslx" id="jslx" value="满堂基础">满堂基础
+      </label>
+      
+       <label class="radio-inline">
+        <input type="radio" name="jslx" id="jslx" value="桩基础">桩基础
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="jslx" id="jslx" value="桩承台基础">桩承台基础
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="jslx" id="jslx" value="带形基础">带形基础
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="jslx" id="jslx" value="筏板基础">筏板基础
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="jslx" id="jslx" value="砖基础">砖基础
+      </label>
+    </div>
+  </div>
+  
     
- 
-</div>
-          
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="button" id="savetodb" class="btn btn-primary" >保存</button>
+    </div>
+  </div>
+</form>
+  
+  
+  
   
 <% include ../footer.html %>

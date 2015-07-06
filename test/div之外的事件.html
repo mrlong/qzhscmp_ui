@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>last.html</title>
+<style>
+.A {
+    width: 100px;
+    height: 50px;
+    background: red;
+}
+ 
+.B {
+    width: 500px;
+    height: 500px;
+    background: blue;
+}
+</style>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $ (document).ready (function ()
+    {
+        $ (".B").hide ();
+        $ (".A").click (function ()
+        {
+            $ (".B").toggle ();
+        });
+    }).click (function (e)
+    {
+        e = e || window.event;
+        if (e.target != $ ('.A')[0] && e.target != $ ('.B')[0])
+        {
+            $ ('.B').hide ();
+        }
+    });
+</script>
+</head>
+<body>
+    <div class="A">按fffffffff</div>
+    <div class="B">ffffffffffff</div>
+</body>
+</html>
