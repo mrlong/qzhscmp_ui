@@ -1,4 +1,6 @@
 <% include ../nav.html %>
+<script src="/js/highcharts.js"></script>
+<script src="/js/highcharts-3d.js"></script>
 
 <style>
   .rowpanel{
@@ -17,6 +19,11 @@
   
   .tabletool{
     margin-top: 5px; 
+    
+  }
+  
+  tr.action{
+    background-color:#ebdede;
   }
   
 </style>  
@@ -24,13 +31,79 @@
   
   changeNavActive('/self/zb');
   
+  function loadchart(curid){
+    //
+    $(".zbname").text(curid);
+    var chart_1 = new Highcharts.Chart({
+        chart: {
+            renderTo: 'chart-1',
+            type: 'column',
+            margin: 75,
+            options3d: {
+                enabled: true,
+                alpha: 7,
+                beta: 10,
+                depth: 50,
+                viewDistance: 25
+            }
+        },
+        title: {text: '总造价分析'},
+        plotOptions: {
+            column: {depth: 25}
+        },
+        xAxis: {
+            categories: ['分部分项','措施项目','其他项目','规费','税金']
+        },
+        legend:{enabled:false},credits:{enabled:false},
+        series: [{
+            name:'万元',
+            data: [['分部分项',29.9],['措施项目',71.5], ['其他项目',106.4], ['规费',129.2], ['税金',144.0]] //这个数据需要ajax取出
+        }]
+    });
+    
+    
+    //
+    var chart_2 = new Highcharts.Chart({
+        chart: {
+            renderTo: 'chart-2',
+            type: 'column',
+            margin: 75,
+            options3d: {
+                enabled: true,
+                alpha: 7,
+                beta: 10,
+                depth: 50,
+                viewDistance: 25
+            }
+        },
+        title: {text: '直接工程费分析'},
+        plotOptions: {
+            column: {depth: 25}
+        },
+        xAxis: {
+          categories: ['人工费','材料费','机械费','管理费','利润','风险']
+        },
+        legend:{enabled:false},credits:{enabled:false},
+        series: [{
+            name:'万元',
+            data: [['人工费',29.9],['材料费',71.5], ['机械费',106.4], ['管理费',129.2], ['利润',144.0],['风险',2.3]]
+        }]
+    });
+  };
+  
+  $(document).ready(function(){
+    loadchart('第一行的id');
+    $('#zblist td:not(".func")').on('click',function(){
+      $("#zblist tr.action").removeClass('action');
+      $(this.parentNode).addClass('action');
+      
+      //更新下面的图示及数据内容
+      loadchart($(this.parentNode).attr('id')); 
+    });
+  });
+  
 </script>
 
-<ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="/self/zb">分析数据</a></li>
-  <li role="presentation" ><a href="/self/zb/diff">对比数据</a></li>
-  <li role="presentation"><a href="/self/zb/template">增加分析</a></li>
-</ul>
 
 <div id="dowin" style="padding: 10px;">
             
@@ -38,8 +111,7 @@
       <div class="row">
       <div class="col-md-6">
       <div class="tabletool">
-        <button class="btn btn-default" ><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"> 操作1</button> 
-        <button class="btn btn-default" ><span class="glyphicon glyphicon-folder-close" aria-hidden="true"> 操作2</button> 
+        <button class="btn btn-default" ><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"> 生成指标</button> 
       </div>
       </div>
       <div class="col-md-6">
@@ -58,46 +130,75 @@
     </div> <!-- row -->
 
    </div>
-  <table class="table table-hover table-condensed">
+  <table id="zblist" class="table table-hover table-condensed">
     <thead>
       <tr>
         <th>#</th>
         <th>工程名称</th>
-        <th>编制日期</th>
+        <th>分析模板</th>
+        <th>工程类别</th>
         <th>建筑面积</th>
-        <th>单方造价</th>
         <th>操作</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr>
+      <tr class="action" id="guidxxxxxx1">
         <th scope="row">1</th>
         <td>A文件</td>
-        <td>一分钟</td>
-        <td>2345</td>
-        <td>2012</td>
-        <td><a href="#">详情</a> <a href="#">对比</a></td>
+        <td>默认模板</td>
+        <td>住宅</td>
+        <td>212</td>
+        <td class="func"><a href="#">查看</a> <a href="#">对比</a></td>
       </tr>
-      <tr>
+      <tr id="guidxxxxxx2">
         <th scope="row">2</th>
         <td>B文件</td>
-        <td>2015-3-09</td>
-        <td>2345</td>
-        <td>2012</td>
-        <td><a href="#">详情</a> <a href="#">对比</a></td>
+        <td>自定义模板</td>
+        <td>住宅</td>
+        <td>202</td>
+        <td class="func"><a href="#">查看</a> <a href="#">对比</a></td>
       </tr>
-      <tr>
+      <tr id="guidxxxxxx3">
         <th scope="row">3</th>
         <td>C文件</td>
-        <td>2015-6-5</td>
-        <td>2345</td>
-        <td>2012</td>
-        <td><a href="#">详情</a> <a href="#">对比</a></td>
+        <td>自定义模板</td>
+        <td>住宅</td>
+        <td>201</td>
+        <td class="func"><a href="#">查看</a> <a href="#">对比</a></td>
       </tr>
     </tbody>
   </table>
         
+</div>
+  
+<div>
+
+  <!-- 下面的图示及相关数据 -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">图示</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">对比结果</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+      <h4 class="zbname" style=" text-align: center; "></h4>
+      <div class="row">
+        <div class="col-md-6">
+          <div id="chart-1"></div>
+        </div>
+        <div class="col-md-6">
+          <div id="chart-2"></div>
+        </div>
+      
+      </div>  
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">
+      
+    </div>
+  </div>
+
 </div>
 
     

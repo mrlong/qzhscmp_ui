@@ -31,6 +31,22 @@ router.use('/member',function(req,res,next){
   res.loadview('member/index.html');
 });
 
+
+
+//指标
+router.use('/zb/template',function(req,res,next){
+  res.loadview('zb/template.html');
+});
+
+router.use('/zb/diff',function(req,res,next){
+  res.loadview('zb/diff.html');
+});
+
+router.use('/zb',function(req,res,next){
+  res.loadview('zb/index.html');
+});
+
+
 router.use('/createent',function(req,res,next){
   res.loadview('index/createent.html');
 });
