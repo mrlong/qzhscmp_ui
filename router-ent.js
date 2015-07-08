@@ -31,10 +31,13 @@ router.use('/member',function(req,res,next){
   res.loadview('member/index.html');
 });
 
+router.use('/createent',function(req,res,next){
+  res.loadview('index/createent.html');
+});
 
 //  /ent/
 router.use('/',function(req,res,next){
-  res.loadview('index.html');
+  res.loadview('index/index.html');
 });
 
 
