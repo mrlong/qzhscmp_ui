@@ -1,0 +1,117 @@
+<% include ../nav.html %>
+  
+<script>
+  
+  changeNavActive('/self/basic');
+  
+</script>
+    
+<style>
+  .tabletool{
+    margin: 10px; 
+  }
+  
+</style>  
+
+<div class="panel panel-default">
+            
+  
+   <div class="panel-heading" >材料管理</div>
+
+  <div class="panel-body" style="padding:0px">
+      <div class="row">
+      <div class="col-md-6">
+      <div class="tabletool">
+        <button class="btn btn-default" ><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"> 增加材料</button> 
+        <button class="btn btn-default" ><span class="glyphicon glyphicon-import" aria-hidden="true"> 导入Excel</button> 
+      </div>
+      </div>
+      <div class="col-md-6">
+      <div class="pull-right">
+        <form class="navbar-form navbar-left">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="查找内容..." width="200px">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Go!</button>
+          </span>
+        </div><!-- /input-group -->
+        </form>
+     </div>  
+    </div>    
+
+    </div> <!-- row -->
+
+   </div>
+  <table class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>材料名称</th>
+        <th>规格型号</th>
+        <th>单位</th>
+        <th>单价</th>
+        <th>品牌</th>
+        <th>询价时间</th>
+        <th>上传人</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td >1</td>
+        <td>材料名称1</td>
+        <td>规格型号1</td>
+        <td>单位1</td>
+        <td>12.3</td>
+        <td>boss</td>
+        <td>2015-3-2 12:23</td>
+        <td>龙某某</td>
+        <td><a href="#">编辑</a> <a href="#">删除</a> </td>
+      </tr>
+      <tr>
+        <td >2</td>
+        <td>材料名称2</td>
+        <td>规格型号2</td>
+        <td>单位2</td>
+        <td>129</td>
+        <td>美的</td>
+        <td>2015-3-2 12:23</td>
+        <td>张三</td>
+        <td><a href="#">编辑</a> <a href="#">删除</a> </td>
+      </tr>
+      <tr>
+        <td >3</td>
+        <td>材料名称3</td>
+        <td>规格型号3</td>
+        <td>单位4</td>
+        <td>12/td>
+        <td>google</td>
+        <td>2015-3-2 12:23</td>
+        <td>龙某某</td>
+        <td><a href="#">编辑</a> <a href="#">删除</a> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+    
+    
+<div class="pager">
+  <div class="pagerbar">
+    <a class="first disabled" href="javascript:;" title="首页"></a>
+    <a class="disabled" href="javascript:;">上一页</a>
+    <a class="current" href="javascript:;">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <span class="ellipsis">…</span>
+    <a href="#">下一页</a>
+    <a class="last" href="#" title="末页">
+    </a><span class="addition"><span class="redirect">跳转到<input class="pn" value="2" name="pn" type="text" data-toggle="tooltip" data-placement="top" title="共10页">页<a class="go" href="javascript:;" onclick="var $pn=this.parentNode.getElementsByTagName('input')[0].value||1;$pn=/[^\d]/g.test($pn)?0:$pn;$pn=Math.min(Math.max($pn, 1),100);location.href='http://www.qzhyun.com/zhaopin/?dqs=070020&amp;curPage=$pn$'.replace(/\$pn\$/ig, $pn-1);return false;">确定</a></span></span>
+  </div>
+</div>
+  
+          
+  
+<% include ../footer.html %>

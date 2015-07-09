@@ -62,6 +62,13 @@ router.use('/message',function(req,res,next){
 });
 
 
+//材料管理
+router.use('/basic',function(req,res,next){
+  res.loadview('basic/index.html');
+});
+
+
+
 
 
 router.use('/',function(req,res,next){

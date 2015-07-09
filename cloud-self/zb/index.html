@@ -100,14 +100,15 @@
     $("#diff tbody").html("");
     var data = [{name:'方案1',date:'2015-3-2'},{name:'方案2',date:'2015-3-1'}];
     var no=1;
-    data.forEach(function(row){
+    for(var i=0;i<data.length;i++){
+      var row = data[i];
       $("#diff tbody").append('<tr>' + 
                               '<td>' + no++ + '</td>' + 
                               '<td>'  + row.name + '</td>' +
                               '<td>'  + row.date + '</td>' + 
                               '<td><a href="#">查看</a> <a href="#"  onclick="deldiff(\''+ row.name + '\')">删除</a></td>' +
                               +'</tr>');  
-    });
+    };
   };
   
   
