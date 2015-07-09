@@ -26,6 +26,10 @@
     background-color:#ebdede;
   }
   
+  #diff{
+    margin-top: 5px; 
+  }
+  
 </style>  
 <script>
   
@@ -91,14 +95,36 @@
     });
   };
   
+  //加载对比数据
+  function loaddiffdata(curid){
+    $("#diff tbody").html("");
+    var data = [{name:'方案1',date:'2015-3-2'},{name:'方案2',date:'2015-3-1'}];
+    var no=1;
+    data.forEach(function(row){
+      $("#diff tbody").append('<tr>' + 
+                              '<td>' + no++ + '</td>' + 
+                              '<td>'  + row.name + '</td>' +
+                              '<td>'  + row.date + '</td>' + 
+                              '<td><a href="#">查看</a> <a href="#"  onclick="deldiff(\''+ row.name + '\')">删除</a></td>' +
+                              +'</tr>');  
+    });
+  };
+  
+  
+  function deldiff(id){
+    alert(id);
+  }
+  
   $(document).ready(function(){
     loadchart('第一行的id');
+    loaddiffdata('第一行的id');
     $('#zblist td:not(".func")').on('click',function(){
       $("#zblist tr.action").removeClass('action');
       $(this.parentNode).addClass('action');
       
       //更新下面的图示及数据内容
       loadchart($(this.parentNode).attr('id')); 
+      loaddiffdata($(this.parentNode).attr('id'));
     });
   });
   
@@ -169,7 +195,23 @@
       </tr>
     </tbody>
   </table>
-        
+     
+  <div class="pager">
+    <div class="pagerbar">
+      <a class="first disabled" href="javascript:;" title="首页"></a>
+      <a class="disabled" href="javascript:;">上一页</a>
+      <a class="current" href="javascript:;">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <span class="ellipsis">…</span>
+      <a href="#">下一页</a>
+      <a class="last" href="#" title="末页">
+      </a><span class="addition"><span class="redirect">跳转到<input class="pn" value="2" name="pn" type="text" data-toggle="tooltip" data-placement="top" title="共10页">页<a class="go" href="javascript:;" onclick="var $pn=this.parentNode.getElementsByTagName('input')[0].value||1;$pn=/[^\d]/g.test($pn)?0:$pn;$pn=Math.min(Math.max($pn, 1),100);location.href='http://www.qzhyun.com/zhaopin/?dqs=070020&amp;curPage=$pn$'.replace(/\$pn\$/ig, $pn-1);return false;">确定</a></span></span>
+    </div>
+  </div>
+    
 </div>
   
 <div>
@@ -195,7 +237,19 @@
       </div>  
     </div>
     <div role="tabpanel" class="tab-pane" id="profile">
-      
+      <table id="diff" class="table table-hover table-condensed">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>方案名称</th>
+          <th>创建时间</th>
+          <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+      </table>
     </div>
   </div>
 
