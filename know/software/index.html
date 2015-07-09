@@ -22,13 +22,17 @@
     
   }
   
- .table .source-title{
+  .table .source-title{
     list-style-type:circle;
     background: url(/img/li-before.jpg) no-repeat 2px 14px;
   }
   
-  .table .source-title a{
+  .table .source-title a,  .table .source-title span:first-child{
     padding-left: 5px; 
+  }
+  
+  .table .source-title span{
+    color: #2f3795; 
   }
   
   li .active {
@@ -57,10 +61,9 @@
 
 </style>  
 <script>
-  changeNavActive('/know/law');
+  changeNavActive('/know/software');
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
-  
   
     $("li a").on('click',function(){
       var that = $(this);
@@ -75,26 +78,26 @@
 <div class="lawconent">
   <div class="navmenu">
     <div class="navmenuitem" style="border-bottom :1px dashed #d3c8be; border-top :1px solid #d3c8be;">
-     <strong  class=" pull-left">适用地区:</strong><ul class="list-inline">
+     <strong  class=" pull-left">软件类型:</strong><ul class="list-inline">
       <li style="margin-left: 15px;" ><a href="#" class="active">全部</a></li>
-      <li><a href="#"> 杭州</a></li>
-      <li><a href="#"> 宁波</a></li>
+      <li><a href="#"> 擎洲广达</a></li>
+      <li><a href="#"> 水利软件</a></li>
+      <li><a href="#"> 公路软件</a></li>
+      <li><a href="#"> 电子招投标</a></li>
+      <li><a href="#"> 资料软件</a></li>
+      <li><a href="#"> 擎洲云</a></li>
+      <li><a href="#"> 其他软件</a></li>
     </ul>
     </div>
     
-    <div class="navmenuitem" style="border-bottom :1px dashed #d3c8be;">
-     <strong  class="pull-left">发布时间:</strong> <ul class="list-inline">
-      <li style="margin-left: 15px;" ><a href="#" class="active">全部</a></li>
-      <li ><a href="#">2015年</a></li>
-      <li><a href="#">2014年</a></li></ul>
-    
-    </div>
     
     <div class="navmenuitem" style="border-bottom :1px solid #d3c8be;">
-      <strong  class="pull-left">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别:</strong><ul class="list-inline">
+      <strong  class="pull-left">问题类型:</strong><ul class="list-inline">
       <li style="margin-left: 15px;" class="active"><a href="#" class="active">全部</a>
-      </li><li><a href="#"> 取费规则</a></li>
-      <li><a href="#"> 定额</a></li></ul>
+      </li><li><a href="#"> 基本操作</a></li>
+      <li><a href="#"> 常见问题</a></li>
+      <li><a href="#"> 特色功能</a></li>
+    </ul>
     </div>
     
     
@@ -125,28 +128,32 @@
   <div class="rowlist">
     <table class="table table-hover">
       <tr>
-        <td class="source-title" ><a href="/know/law/centent/XXXXXXXX" target="_blank" data-toggle="tooltip" data-placement="top" title="住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》、《通用安装工程消耗量定额》、《市政工程消耗量定额》、《建设工程施工机械台班费用编制规则》、《建设工程施工仪器仪表台班费用编制规则》的通知">住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》</a></td>
-        <td class="source" nowrap><a href="#">建标[2015]34号</a></td>
+        <td class="source-title" >
+          <span >[擎洲广达]</span>
+          <span >[基本操作]</span>
+          <a href="/know/software/centent/XXXXXXXX" target="_blank" data-toggle="tooltip" data-placement="top" title="同一个工程中，一个专业的材料信息价已经调整好了，另外的专业材料价钱有没有快速的办法调整过来">
+          同一个工程中，一个专业的材料信息价已经调整好了，另外的专业材料价钱... </a>
+        </td>
         <td class="source-date" nowrap>2015-03-13</td>
       </tr>
       
       <tr>
-        <td class="source-title" ><a href="/know/law/centent/XXXXXXXX" target="_blank" data-toggle="tooltip" data-placement="top" title="住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》、《通用安装工程消耗量定额》、《市政工程消耗量定额》、《建设工程施工机械台班费用编制规则》、《建设工程施工仪器仪表台班费用编制规则》的通知">住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》</a></td>
-        <td class="source" nowrap><a href="#">建标[2015]34号</a></td>
+        <td class="source-title" >
+          <span >[电子招投标]</span>
+          <span >[基本操作]</span>
+          <a href="/know/software/centent/XXXXXXXX" target="_blank" data-toggle="tooltip" data-placement="top" title="WPS和OFFICE同存的时候，默认OFFCIE的方法">WPS和OFFICE同存的时候，默认OFFCIE的方法</a></td>
         <td class="source-date" nowrap>2015-03-13</td>
       </tr>
       
       <tr>
-        <td class="source-title" ><a href="/know/law/centent/XXXXXXXX" target="_blank" data-toggle="tooltip" data-placement="top" title="住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》、《通用安装工程消耗量定额》、《市政工程消耗量定额》、《建设工程施工机械台班费用编制规则》、《建设工程施工仪器仪表台班费用编制规则》的通知">住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》</a></td>
-        <td class="source" nowrap><a href="#">建标[2015]34号</a></td>
+        <td class="source-title" >
+        <span >[电子招投标]</span>
+        <span >[特色功能]</span>    
+        <a href="/know/software/centent/XXXXXXXX" target="_blank" data-toggle="tooltip" data-placement="top" title="报表空白没有文字">报表空白没有文字</a></td>
         <td class="source-date" nowrap>2015-03-13</td>
       </tr>
       
-      <tr>
-        <td class="source-title"><a href="/know/law/centent/XXXXXXXX" target="_blank"  data-toggle="tooltip" data-placement="top" title="住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》、《通用安装工程消耗量定额》、《市政工程消耗量定额》、《建设工程施工机械台班费用编制规则》、《建设工程施工仪器仪表台班费用编制规则》的通知">住房城乡建设部关于印发《房屋建筑与装饰工程消耗量定额》</a></td>
-        <td class="source" nowrap><a href="#">建标[2015]34号</a></td>
-        <td class="source-date" nowrap>2015-03-13</td>
-      </tr>
+
     </table>
   
   </div>

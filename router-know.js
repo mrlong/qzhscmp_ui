@@ -22,6 +22,14 @@ router.use('/law',function(req,res,next){
   res.loadview('law/index.html');
 });
 
+//软件问题
+router.use('/software/centent/:guid',function(req,res,next){
+  res.loadview('software/centent.html');
+});
+
+router.use('/software',function(req,res,next){
+  res.loadview('software/index.html');
+});
 
 
 router.use('/',function(req,res,next){
