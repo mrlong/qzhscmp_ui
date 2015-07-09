@@ -21,19 +21,26 @@
 
   <div id="formwin">
   
-  <form>
+  <form class="form-horizontal">
 
     <div class="form-group">
-      <label for="yunname">真实姓名</label>
-      <input type="text" name="yunname" class="form-control" id="yunname" >
+      <label for="yunname" class="col-sm-2 control-label">真实姓名</label>
+      <div class="col-sm-10">
+        <input type="text" name="yunname" class="form-control" id="yunname" >
+      </div>
     </div>
+   
+
     <div class="form-group">
-      <label for="youarea">所在地</label>
+      <label for="youarea" class="col-sm-2 control-label">所在地</label>
+      <div class="col-sm-10">
       <input type="text" name="youarea" class="form-control" id="youarea" >
+      </div>
     </div>
     
     <div class="form-group">
-      <label for="exampleInputPassword1">单位名称</label>
+      <label for="exampleInputPassword1" class="col-sm-2 control-label">单位名称</label>
+      <div class="col-sm-10">
       <select class="form-control" id="youarea" check-type="required">
         <option></option>
         <option>地区1</option>
@@ -42,10 +49,12 @@
         <option>地区4</option>
         <option>地区5</option>
       </select>
+      </div>
     </div>
     
     <div class="form-group">
-      <label for="unittyle">单位性质</label>
+      <label for="unittyle" class="col-sm-2 control-label">单位性质</label>
+      <div class="col-sm-10">
       <select class="form-control" id="unittyle" check-type="required">
         <option></option>
         <option>性质1</option>
@@ -54,14 +63,21 @@
         <option>性质4</option>
         <option>性质5</option>
       </select>
+      </div>
     </div>
     
     <div class="form-group">
-      <label for="unitaddr">单位地址</label>
+      <label for="unitaddr" class="col-sm-2 control-label">单位地址</label>
+      <div class="col-sm-10">
       <input type="text" name="unitaddr" id="unitaddr" class="form-control" id="exampleInputPassword1" >
+      </div>
     </div>
-
-    <button type="submit" class="btn btn-primary">保存</button>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+    </div>
+    
   </form>
     
   

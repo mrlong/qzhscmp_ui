@@ -64,8 +64,21 @@
        
         params.err = true;
         params.msg = "该号码已经被注册过！";
+        $("#btnlogin").removeClass('hide');      
  
+      }
+      else if(obj.id=='inputPassword2'){
+        if ($('#inputPassword2').val() != $("#inputPassword1").val() && $("#inputPassword1").val()!=''){
+          params.err = true;
+          params.msg = "两次输入密码不一致！";    
         };
+      }
+      else if(obj.id=='inputPassword1'){
+        if ($('#inputPassword2').val() != $("#inputPassword1").val() && $("#inputPassword2").val()!=''){
+          params.err = true;
+          params.msg = "两次输入密码不一致！";    
+        };  
+      }
       
     },{icon:true});
     
@@ -94,9 +107,7 @@
     });
     
     $("#button2").on('click',function(){
-      if ($("#form2").valid(this,"内容不完整!")==false){
-        return false;
-      };
+
       
       $(".setp ul .active").removeClass('active');
       $("#nav3").addClass('active');
@@ -118,6 +129,12 @@
     //获取验证码
     $('#bntphonecode').on('click', function () {
       var phonecode = $("#moblie").val();
+      
+      if ($("#form1").valid(this,"内容不完整!")==false){
+        return false;
+      };
+      
+      
       if(phonecode.length==11){
         time($(this).button('loading'));
       }
@@ -156,17 +173,22 @@
             <div class="col-xs-6">
               <input type="text" class="form-control" id="moblie"  placeholder="输入能获取校验码的手机号码" check-type="mobile required">
             </div>
+
+          <div class="col-xs-offset-2 col-xs-6 hide" id="btnlogin">
+            <a class="btn btn-primary" href="/" role="button">我已有账号，马上登录。</a>
+          </div>
+
           </div>
           <div class="form-group">
             <label for="inputPassword1" class="col-xs-2 control-label">设置密码</label>
             <div class="col-xs-6">
-              <input type="password" class="form-control" id="inputPassword1" placeholder="Password" check-type="required">
+              <input type="password" class="form-control" id="inputPassword1"  minlength="6"  check-type="required">
             </div>
           </div>
           <div class="form-group">
             <label for="inputPassword2" class="col-xs-2 control-label">确认密码</label>
             <div class="col-xs-6">
-              <input type="password" class="form-control" id="inputPassword2" placeholder="Password" check-type="required">
+              <input type="password" class="form-control" id="inputPassword2" minlength="6" check-type="required">
             </div>
           </div>
           
