@@ -4,6 +4,23 @@
   
   changeNavActive('/self/basic');
   
+  $(document).ready(function(){
+  
+    $('.dodel').on('click',function(){
+      
+     var that = $(this.parentNode.parentNode);
+      var id= that.attr('id');
+      
+      alert(id);
+      
+      //成功之后删除当前节点
+      that.remove();
+    });
+    
+    
+  });
+  
+  
 </script>
     
 <style>
@@ -22,7 +39,7 @@
       <div class="row">
       <div class="col-md-6">
       <div class="tabletool">
-        <button class="btn btn-default" ><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"> 增加材料</button> 
+        <a class="btn btn-default" role="button" href="/self/basic/add" ><span class="glyphicon glyphicon-plus-sign" aria-hidden="true" > 增加材料</a> 
         <button class="btn btn-default" ><span class="glyphicon glyphicon-import" aria-hidden="true"> 导入Excel</button> 
       </div>
       </div>
@@ -58,7 +75,7 @@
     </thead>
 
     <tbody>
-      <tr>
+      <tr id="xxxxx">
         <td >1</td>
         <td>材料名称1</td>
         <td>规格型号1</td>
@@ -67,9 +84,9 @@
         <td>boss</td>
         <td>2015-3-2 12:23</td>
         <td>龙某某</td>
-        <td><a href="#">编辑</a> <a href="#">删除</a> </td>
+        <td><a href="/self/basic/edit/xxxxx">编辑</a> <a href="#" class="dodel">删除</a> </td>
       </tr>
-      <tr>
+      <tr id="xxxxx">
         <td >2</td>
         <td>材料名称2</td>
         <td>规格型号2</td>
@@ -78,9 +95,9 @@
         <td>美的</td>
         <td>2015-3-2 12:23</td>
         <td>张三</td>
-        <td><a href="#">编辑</a> <a href="#">删除</a> </td>
+        <td><a href="/self/basic/edit/xxxxx">编辑</a> <a href="#" class="dodel">删除</a> </td>
       </tr>
-      <tr>
+      <tr id="xxxxx">
         <td >3</td>
         <td>材料名称3</td>
         <td>规格型号3</td>
@@ -89,7 +106,7 @@
         <td>google</td>
         <td>2015-3-2 12:23</td>
         <td>龙某某</td>
-        <td><a href="#">编辑</a> <a href="#">删除</a> </td>
+        <td><a href="/self/basic/edit/xxxxx">编辑</a> <a href="#" class="dodel">删除</a> </td>
       </tr>
     </tbody>
   </table>
