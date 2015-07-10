@@ -1,0 +1,142 @@
+<% include ../nav.html %>
+<script src="/js/bootstrap3-validation.js"></script>
+
+<script>
+  
+
+  
+  $(document).ready(function(){
+
+    $("form").validation({icon:true,reqmark:false});
+    changeNavActive('/self/zb');
+    $('[data-toggle="tooltip"]').tooltip();
+    
+    
+    $("#setgcdj").on('click',function(){
+    
+      alert('接下是后台开发来处理了，谢谢配合。');
+    });
+    
+    
+    });
+    
+    
+  
+  
+  
+</script>
+  
+<style>
+  .setp .nav .active span{
+    background-color:#337ab7; 
+  }
+  .setp .nav .active {
+    border-bottom: 1px solid #97C3E8; 
+  }
+  .setp .nav {
+    border-bottom: 1px solid #eee; 
+  }
+  
+  .stpconent{
+    margin-top: 30px; 
+  }
+  
+  tr.action{
+    background-color:#97C3E8;
+  }
+  
+  select{
+    width: 152px; 
+  }
+  
+</style>
+  
+
+
+<div>
+  <div class ="setp">
+      <ul class="nav  nav-justified">
+        <li><h2>生成指标</h2></li>
+        <li id='nav1' role="presentation" ><a href="/self/zb/create"><span class="badge">1</span>选择工程</a></li>
+        <li id='nav2' role="presentation" ><a href="/self/zb/create/2/xxxx"><span class="badge">2</span>完善工程信息</a></li>
+        <li id='nav3' role="presentation" class="active"><a href="#"><span class="badge">3</span>设置节点信息</a></li>
+      </ul>
+  </div>
+
+
+  
+<!--第三步------------------------------------------------------------------------------------------>
+  <div id="stp3" class="stpconent ">
+    
+    <table id="gclist" class="table table-hover table-condensed table-bordered">
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>建筑面积</th>
+          <th>专业类型</th>
+          <th>专业分类</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="xxxxx">
+          <td>工程名称1</td>
+          <td><input type="text"></td>
+          <td>整体工程</td>
+          <td></td>
+        </tr>
+        
+         <tr id="xxxx">
+          <td>门诊区</td>
+           <td><input type="text"></td>
+          <td>专业工程</td>
+          <td> </td>
+        </tr>
+        
+         <tr id="xxxx">
+          <td>门诊区二次装饰工程</td>
+          <td><input type="text"></td>
+          <td>土建工程</td>
+          <td>
+            <select>
+              <option>单独土石方工程</option>
+              <option>桩基工程</option>
+              <option>土建工程</option>
+              <option>幕墙工程</option>
+            </select>  
+          </td>
+        </tr>
+        
+        <tr id="xxxx">
+          <td>门诊区二次安装工程</td>
+          <td><input type="text"></td>
+          <td>安装工程</td>
+          <td>
+            <select>
+              <option>电气工程</option>
+              <option>消防工程</option>
+              <option>给排水工程</option>
+              <option>照明工程</option>
+            </select>  
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+    
+    <hr>
+    <div class="pull-right">
+      <button id="setgcdj" class="btn btn-primary">下一步</button>
+    </div>
+    
+  </div>
+        
+</div>  
+
+  
+
+  
+  
+  
+  
+<% include ../footer.html %>

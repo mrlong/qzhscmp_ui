@@ -28,18 +28,26 @@ router.use('/files',function(req,res,next){
   res.loadview('files.html');
 });
 
+
 //指标
-router.use('/zb/template',function(req,res,next){
-  res.loadview('zb/template.html');
+
+router.all('/zb/create/2/:id',function(req,res,next){
+  res.loadview('zb/create-2.html');
 });
 
-router.use('/zb/diff',function(req,res,next){
-  res.loadview('zb/diff.html');
+router.use('/zb/create/3/:id',function(req,res,next){
+  res.loadview('zb/create-3.html');
+});
+
+router.use('/zb/create',function(req,res,next){
+  res.loadview('zb/create-1.html');
 });
 
 router.use('/zb',function(req,res,next){
   res.loadview('zb/index.html');
 });
+
+
 
 
 //个人资料

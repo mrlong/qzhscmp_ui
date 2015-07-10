@@ -1,0 +1,148 @@
+<% include ../nav.html %>
+<script src="/js/bootstrap3-validation.js"></script>
+
+<script>
+  
+  
+  
+  $(document).ready(function(){
+    $("#gcfl-win").hide();
+    $("form").validation({icon:true,reqmark:false});
+    changeNavActive('/self/zb');
+    $('[data-toggle="tooltip"]').tooltip();
+    
+    $('#gclist td').on('click',function(){
+      $("#gclist tr.action").removeClass('action');
+      $(this.parentNode).addClass('action'); 
+    });
+    
+    $("#selectgc").on('click',function(){
+      
+      //查是否已选择了
+      if($("#gclist tr.action").length==0){
+        alert('请选择你要分析的工程，再点下一步。');
+        return;
+      };
+      
+      var id = $("#gclist tr.action").attr('id');
+      //alert(id);
+      
+      //关闭第一页面,打开二个页面。
+      location.href = '/self/zb/create/2/' + id;
+    });
+    
+    
+  });
+  
+  
+</script>
+  
+<style>
+  .setp .nav .active span{
+    background-color:#337ab7; 
+  }
+  .setp .nav .active {
+    border-bottom: 1px solid #97C3E8; 
+  }
+  .setp .nav {
+    border-bottom: 1px solid #eee; 
+  }
+  
+  .stpconent{
+    margin-top: 10px; 
+  }
+  
+  tr.action{
+    background-color:#97C3E8;
+  }
+  
+</style>
+  
+
+
+<div>
+  <div class ="setp">
+      <ul class="nav  nav-justified">
+        <li><h2>生成指标</h2></li>
+        <li id='nav1' role="presentation" class="active"><a href="/self/zb/create"><span class="badge">1</span>选择工程</a></li>
+        <li id='nav2' role="presentation" ><a href="#"><span class="badge">2</span>完善工程信息</a></li>
+        <li id='nav3' role="presentation"><a href="#"><span class="badge">3</span>设置节点信息</a></li>
+      </ul>
+  </div>
+  
+  
+<!-- 第一步 -->
+  <div id="stp1" class="stpconent">
+    <div class="pull-right">
+      <div class="navbar-form navbar-left">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="查找内容..." width="200px">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+      </div><!-- /input-group -->
+      </div>
+     </div>  
+    <table id="gclist" class="table table-hover table-condensed table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>工程名称</th>
+          <th>修改时间</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="xxxxx">
+          <td>1</td>
+          <td>工程名称1</td>
+          <td>2013-2-2</td>
+        </tr>
+        
+         <tr id="xxxx">
+          <td>2</td>
+          <td>工程名称2</td>
+          <td>2013-2-2</td>
+        </tr>
+        
+         <tr id="xxxx">
+          <td>3</td>
+          <td>工程名称3</td>
+          <td>2013-2-2</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pager">
+    <div class="pagerbar">
+      <a class="first disabled" href="javascript:;" title="首页"></a>
+      <a class="disabled" href="javascript:;">上一页</a>
+      <a class="current" href="javascript:;">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <span class="ellipsis">…</span>
+      <a href="#">下一页</a>
+      <a class="last" href="#" title="末页">
+      </a><span class="addition"><span class="redirect">跳转到<input class="pn" value="2" name="pn" type="text" data-toggle="tooltip" data-placement="top" title="共10页">页<a class="go" href="javascript:;" onclick="var $pn=this.parentNode.getElementsByTagName('input')[0].value||1;$pn=/[^\d]/g.test($pn)?0:$pn;$pn=Math.min(Math.max($pn, 1),100);location.href='http://www.qzhyun.com/zhaopin/?dqs=070020&amp;curPage=$pn$'.replace(/\$pn\$/ig, $pn-1);return false;">确定</a></span></span>
+    </div>
+  </div>
+    
+    
+    <hr>
+    <div class="pull-right">
+      <button id="selectgc" class="btn btn-primary">下一步</button>
+    </div>
+    
+  </div>
+
+        
+</div>  
+
+  
+
+  
+  
+  
+  
+<% include ../footer.html %>
