@@ -4,6 +4,15 @@
   #formwin{
     padding: 30px;  
   }
+  a {
+    color: #333  ; 
+  }
+  
+ a:hover{
+   color: #337ab7; 
+   text-decoration: none;
+ }
+
   
   .navmenuitem{
     padding: 5px;
@@ -53,6 +62,8 @@
     margin-top: 5px;
     margin-bottom: 5px;
   }
+  
+
 
 
 </style>  
@@ -66,6 +77,10 @@
       var that = $(this);
       that.parent().parent().find('.active').removeClass('active');
       that.addClass('active');
+    });
+    
+    $('[data-toggle="tooltip"]').on('click',function(){
+      $(this).tooltip('destroy');
     });
   });
   

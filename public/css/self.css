@@ -98,3 +98,16 @@
   border: 1px #eee solid;
 }
 
+/*表格居中的问题*/
+thead tr th{
+    text-align: center; 
+}
+  
+tbody tr td.tr{
+  text-align:right; 
+}
+
+tbody tr td.tc{
+  text-align:center; 
+}
+
