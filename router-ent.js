@@ -51,6 +51,12 @@ router.use('/createent',function(req,res,next){
   res.loadview('index/createent.html');
 });
 
+//设置
+router.use('/setting',function(req,res,next){
+  res.loadview('setting/index.html');
+});
+
+
 //  /ent/
 router.use('/',function(req,res,next){
   res.loadview('index/index.html');
