@@ -111,3 +111,9 @@ tbody tr td.tc{
   text-align:center; 
 }
 
+/*页头*/
+.page-header{
+  margin-top:0px;
+  font-size: 28px;
+}
+

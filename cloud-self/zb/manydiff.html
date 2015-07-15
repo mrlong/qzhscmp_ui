@@ -1,0 +1,191 @@
+<% include ../nav.html %>
+
+<style>
+  
+.navmenuitem{
+    padding: 5px;
+/*    border-top :1px solid #d3c8be;*/
+    border-left :1px solid #d3c8be;
+    border-right: 1px solid #d3c8be;
+    vertical-align:middle; 
+  }
+  
+  
+  .navmenuitem strong{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .ch-group{
+    margin-top: 5px;  
+    margin-left:70px;
+  }
+  
+  .search {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  tr.action{
+    background-color:#97C3E8;
+  }
+  
+  
+</style>  
+
+<script>
+
+  $(document).ready(function(){
+    changeNavActive('/self/zb');
+    
+    $(".chkgc").on('click',function(){
+      this.checked==true?$(this.parentNode.parentNode).addClass('action'):$(this.parentNode.parentNode).removeClass('action');
+    });
+    
+    $("#selectgc").on('click',function(){
+      var gcs = $("tr.action");
+      var txt = '';
+      for(var i=0;i<gcs.length;i++){
+        txt += txt==''?$(gcs[i]).attr('id'):';' + $(gcs[i]).attr('id') ;
+      };
+      
+      if(txt==''){
+        alert('请选择要对比的工程');
+        return false; 
+      };
+      
+      //接下来的就是你们的事了，谢谢配合。
+      alert(txt);
+      
+    });
+  });
+  
+</script>
+  
+<h2 class="page-header">筛选工程</h2>
+
+<div class="pagecentent">
+
+   <div class="navmenu">
+    <div class="navmenuitem" style="border-bottom :1px dashed #d3c8be; border-top :1px solid #d3c8be;">
+     <strong  class=" pull-left">工程分类:</strong>
+        <div class="ch-group">
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="全部1"> 全部</label>
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="住宅"> 住宅</label>
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox3" value="宿舍"> 宿舍</label>
+        </div>
+    </div>
+    
+    <div class="navmenuitem" style="border-bottom :1px dashed #d3c8be;">
+     <strong  class="pull-left">结构类型:</strong> 
+      <div class="ch-group">
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="全部2"> 全部</label>
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="住宅"> 框架结构</label>
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox3" value="宿舍"> 剪力墙结构</label>
+      </div>
+    
+    </div>
+    
+    <div class="navmenuitem" style="border-bottom :1px dashed #d3c8be;">
+      <strong  class="pull-left">基础类型:</strong>
+      <div class="ch-group">
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="全部3"> 全部</label>
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="住宅"> 不包含基础</label>
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox3" value="宿舍"> 独立基础</label>
+      </div>
+    </div>
+    
+     <div class="navmenuitem" style="border-bottom :1px dashed #d3c8be;">
+      <strong  class="pull-left">地上层数:</strong>
+       <div class="ch-group">
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="全部4"> 全部</label>
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="住宅"> 低层（1-3层）</label>
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox3" value="宿舍"> 多层（4-6层）</label>
+      </div> 
+    </div>
+     
+     <div class="navmenuitem" style="border-bottom :1px solid #d3c8be;">
+      <strong  class="pull-left">地下层数:</strong>
+      <div class="ch-group">
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox1" value="全部5"> 全部</label>
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox2" value="住宅"> 无地下室</label>
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox3" value="宿舍"> 地下1层</label>
+          <label class="checkbox-inline"><input type="checkbox" id="inlineCheckbox3" value="宿舍"> 地下2层</label>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- 查找 -->
+  <div class="search">
+    <div class="row">
+    <div class="col-md-6">
+    </div>
+    <div  class="col-md-6">
+    <div class="pull-right">
+      <form>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="在筛选结果中按文件名、文件号或内容搜索" width="100px">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+      </div><!-- /input-group -->
+      </form>
+     </div> 
+    </div>
+    </div>
+  </div>
+  
+  <div class="resultdata">
+    <table class="table table-hover table-condensed ">
+      <thead>
+        <tr>
+          <th></th>
+          <th>#</th>
+          <th>工程名称</th>
+          <th>修改时间</th>
+        </tr>  
+      </thead>
+    
+      <tbody>
+        <tr id="xxxxx">
+          <td><input type="checkbox" class="chkgc" ></td>
+          <td>1</td>
+          <td>某某工程</td>
+          <td>2015-09-01 12:23</td>
+        </tr>
+        
+        <tr id="xxxxx">
+          <td><input type="checkbox" class="chkgc" ></td>
+          <td>2</td>
+          <td>某某工程</td>
+          <td>2015-09-01 12:23</td>
+        </tr>
+      
+        
+        <tr id="xxxxx">
+          <td><input type="checkbox" class="chkgc" ></td>
+          <td>3</td>
+          <td>某某工程</td>
+          <td>2015-09-01 12:23</td>
+        </tr>
+      
+      
+      
+      </tbody>
+    </table>
+      
+  
+  
+  </div>
+  
+  <hr>
+    <div class="pull-right">
+      <button id="selectgc" class="btn btn-primary">多工程对比</button>
+  </div>  
+  
+</div>  
+  
+  
+  
+<% include ../footer.html %>

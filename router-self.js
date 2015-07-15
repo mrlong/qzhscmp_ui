@@ -43,6 +43,10 @@ router.use('/zb/create',function(req,res,next){
   res.loadview('zb/create-1.html');
 });
 
+router.use('/zb/manydiff/:guid',function(req,res,next){
+  res.loadview('zb/manydiff.html');
+});
+
 router.use('/zb',function(req,res,next){
   res.loadview('zb/index.html');
 });
