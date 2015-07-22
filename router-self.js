@@ -51,6 +51,21 @@ router.use('/zb',function(req,res,next){
   res.loadview('zb/index.html');
 });
 
+//对标
+
+router.use('/db/add',function(req,res,next){
+  res.loadview('db/add.html');
+});
+
+router.use('/db/selectgc',function(req,res,next){
+  res.loadview('db/selectgc.html');
+});
+
+router.use('/db',function(req,res,next){
+  res.loadview('db/index.html');
+});
+
+
 
 
 

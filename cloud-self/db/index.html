@@ -1,0 +1,121 @@
+<% include ../nav.html %>
+  
+<style>
+  .tabletool{
+    margin: 10px; 
+  }
+  
+</style>  
+  
+  
+<script>
+  
+  $(document).ready(function(){
+  
+    changeNavActive('/self/db');
+    $('[data-toggle="tooltip"]').tooltip();
+    
+  });
+  
+  
+</script>
+  
+  
+<div class="panel panel-default">
+            
+            
+  <div class="panel-heading" >
+        对标分析
+  </div>
+
+  <div class="panel-body" style="padding:0px">
+
+      <div class="row">
+      <div class="col-md-6">
+      <div class="tabletool">
+        <a class="btn btn-default" role="button" href="/self/db/add" >
+          <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"> 新建对标项目</a> 
+      </div>
+      </div>
+      <div class="col-md-6">
+      <div class="pull-right">
+        <form class="navbar-form navbar-left">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="查找内容..." width="300px">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </span>
+        </div><!-- /input-group -->
+        </form>
+     </div>  
+    </div>    
+
+    </div> <!-- row -->
+  </div>
+  
+  <table class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>项目名称</th>
+        <th>编制单位一</th>
+        <th>总价(万元)</th>
+        <th>编制单位二</th>
+        <th>总价(万元)</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>A工程</td>
+        <td>擎洲公司</td>
+        <td >1234</td>
+        <td>广联达</td>
+        <td>1235</td>
+        <td> <a href="#">查看</a></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>B工程</td>
+        <td>擎洲公司</td>
+        <td >1234</td>
+        <td>广联达</td>
+        <td >1235</td>
+        
+        <td><a href="#">查看</a></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>C工程</td>
+        <td>擎洲公司</td>
+        <td >1234</td>
+        <td>广联达</td>
+        <td >1235</td>
+        
+        <td><a href="#">查看</a></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+</div>
+  
+<div class="pager">
+  <div class="pagerbar">
+    <a class="first disabled" href="javascript:;" title="首页"></a>
+    <a class="disabled" href="javascript:;">上一页</a>
+    <a class="current" href="javascript:;">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <span class="ellipsis">…</span>
+    <a href="#">下一页</a>
+    <a class="last" href="#" title="末页">
+    </a><span class="addition"><span class="redirect">跳转到<input class="pn" value="2" name="pn" type="text" data-toggle="tooltip" data-placement="top" title="共10页">页<a class="go" href="javascript:;" onclick="var $pn=this.parentNode.getElementsByTagName('input')[0].value||1;$pn=/[^\d]/g.test($pn)?0:$pn;$pn=Math.min(Math.max($pn, 1),100);location.href='http://www.qzhyun.com/zhaopin/?dqs=070020&amp;curPage=$pn$'.replace(/\$pn\$/ig, $pn-1);return false;">确定</a></span></span>
+  </div>
+</div>
+  
+<% include ../footer.html %>

@@ -179,8 +179,26 @@
   
   </div>
   
+<!-- 分页  -->
+  
+  <div class="pager">
+    <div class="pagerbar">
+      <a class="first disabled" href="javascript:;" title="首页"></a>
+      <a class="disabled" href="javascript:;">上一页</a>
+      <a class="current" href="javascript:;">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <span class="ellipsis">…</span>
+      <a href="#">下一页</a>
+      <a class="last" href="#" title="末页">
+      </a><span class="addition"><span class="redirect">跳转到<input class="pn" value="2" name="pn" type="text" data-toggle="tooltip" data-placement="top" title="共10页">页<a class="go" href="javascript:;" onclick="var $pn=this.parentNode.getElementsByTagName('input')[0].value||1;$pn=/[^\d]/g.test($pn)?0:$pn;$pn=Math.min(Math.max($pn, 1),100);location.href='http://www.qzhyun.com/zhaopin/?dqs=070020&amp;curPage=$pn$'.replace(/\$pn\$/ig, $pn-1);return false;">确定</a></span></span>
+    </div>
+  </div>
+  
   <hr>
-    <div class="pull-right">
+    <div class="pull-left">
       <button id="selectgc" class="btn btn-primary">多工程对比</button>
   </div>  
   

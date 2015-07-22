@@ -1,0 +1,192 @@
+<% include ../nav.html %>
+
+
+<script>
+  
+  $(document).ready(function(){
+
+    changeNavActive('/self/db');
+
+    
+    $("#savetodb").on('click',function(){
+      if ($("form").valid(this,"内容不完整!")==false){
+        return false;
+      };
+    });
+    
+  });
+  
+</script>
+    
+<style>
+  #units .panel {
+    height: 300px; 
+  }
+
+  .unitinfo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .unitinfo .total{
+    text-align: center;
+    font-size: 50px;
+    color: green;
+  }
+  
+  .unitinfo .total-title{
+    margin-top: 30px; 
+  }
+</style>
+  
+
+  
+<h2 class="page-header" style="margin-top:0px;">新建对标项目</h2>
+  
+<div class="form-horizontal">
+  <div class="form-group">
+    <label for="clmc" class="col-sm-2 control-label">项目名称</label>
+    <div class="col-sm-8">
+      <p class="form-control-static">xxxxx工程</p>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="ggxh" class="col-sm-2 control-label">项目编码</label>
+    <div class="col-sm-8">
+      <p class="form-control-static">xxxxx编码</p>
+    </div>
+  </div>
+</div>
+  
+
+<div class="row" id="units">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">广联达</div>
+      <div class="panel-body">
+        <a type="button" class="btn btn-info center-block" role="button" data-toggle="modal" data-target=".selectproject" data-gcid="1">导入单位一</a> 
+        <div class="unitinfo">
+          <div>文件名称 <strong>xxxxxxxxxxxxxxxxxxxx</strong></div> 
+          <div class="total-title">报价(万元)</div>
+          <div class="total">23454</div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">擎洲公司</div>
+      <div class="panel-body">
+        <a type="button" class="btn btn-info center-block" role="button"  data-toggle="modal" data-target=".selectproject" data-gcid="2">导入单位二</a> 
+        <div class="unitinfo">
+          <div>文件名称 <strong>xxxxxxxxxxxxxxxxxxxx</strong></div> 
+          <div class="total-title">报价(万元)</div>
+          <div class="total">23400</div>
+        </div>
+      </div>
+    </div>  
+  </div>  
+</div>
+  
+<button type="button" class="btn btn-primary pull-right" style="width:100px;">下一步</button>  
+  
+<!--弹出信息的内容-->
+<script>
+  
+  function ontrclick(tid){
+    $('tbody .action').removeClass('action');
+    $('#' + tid).addClass('action');
+  };
+  
+  $(document).ready(function(){
+    $('.selectproject').on('show.bs.modal',function(event){
+      var button = $(event.relatedTarget);
+      var recipient = button.data('gcid');  //工程1 
+      var modal = $(this);
+
+      //写入工程列表
+      modal.find('tbody').html("");
+      var rows = [{gcmc:'xxxxx工程',zj:1233,sj:'2015-4-3'},{gcmc:'xxxxx工程',zj:1233,sj:'2015-4-3'},
+                  {gcmc:'xxxxx工程',zj:1233,sj:'2015-4-3'},{gcmc:'xxxxx工程',zj:1233,sj:'2015-4-3'}];
+
+      for(var i=0;i<rows.length;i++){
+        var tid= 'tr' + i;
+        modal.find('tbody').append('<tr onclick="ontrclick(\''  + tid + '\')" id=' + tid +'>' + '<td>' + parseInt(i+1) +'</td>' + 
+                                    '<td>' + rows[i].gcmc + '</td>' +
+                                    '<td>' + rows[i].zj + '</td>' + 
+                                    '<td>' + rows[i].sj + '</td>' +
+                                   '</tr>');
+      };
+    });
+  });
+  
+</script>
+<style>
+  tr.action{
+    background-color:#97C3E8;
+  }
+</style>  
+<div class="modal  selectproject"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">选择工程</h4>
+      </div>
+      
+      <div class="modal-body">
+        <div class="pull-right">
+          <div class="navbar-form navbar-left">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="查找内容..." width="200px">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </span>
+          </div><!-- /input-group -->
+          </div>
+        </div> 
+        
+        <table class="table table-hover table-condensed table-bordered">
+          <thead>
+            <th>#</th>
+            <th>工程名称</th>
+            <th>总造价(万元)</th>
+            <th>修改时间</th>
+          </thead>    
+          <tbody>
+          
+          </tbody>
+        </table>
+        
+        
+        <div class="pager">
+          <div class="pagerbar">
+            <a class="first disabled" href="javascript:;" title="首页"></a>
+            <a class="disabled" href="javascript:;">上一页</a>
+            <a class="current" href="javascript:;">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <span class="ellipsis">…</span>
+            <a href="#">下一页</a>
+            <a class="last" href="#" title="末页">
+            </a><span class="addition"><span class="redirect">跳转到<input class="pn" value="2" name="pn" type="text" data-toggle="tooltip" data-placement="top" title="共10页">页<a class="go" href="javascript:;" onclick="var $pn=this.parentNode.getElementsByTagName('input')[0].value||1;$pn=/[^\d]/g.test($pn)?0:$pn;$pn=Math.min(Math.max($pn, 1),100);location.href='http://www.qzhyun.com/zhaopin/?dqs=070020&amp;curPage=$pn$'.replace(/\$pn\$/ig, $pn-1);return false;">确定</a></span></span>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-primary">确定</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end-->
+  
+<% include ../footer.html %>

@@ -100,7 +100,7 @@
 
 /*表格居中的问题*/
 thead tr th{
-    text-align: center; 
+    text-align: left; 
 }
   
 tbody tr td.tr{
@@ -117,3 +117,18 @@ tbody tr td.tc{
   font-size: 28px;
 }
 
+/*表单保存的按钮*/
+form button.btn-primary{
+    width: 100px; 
+}
+
+/*弹出式窗口*/
+.modal .modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #131bd8;
+  min-height: 16.42857143px;
+}
+
+.modal .modal-footer button{
+  width: 100px;
+}
