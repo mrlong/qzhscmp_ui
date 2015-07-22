@@ -7,3 +7,8 @@
   display: inline;
 }
 
+/*解决左边的nav 最后一行线蓝色没有了*/
+#subnav .panel{
+/*  border-bottom:  transparent 2px solid;*/
+}
+
