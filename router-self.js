@@ -82,6 +82,11 @@ router.use('/profile',function(req,res,next){
   res.loadview('profile/index.html');
 });
 
+//我的积分
+router.use('/score',function(req,res,next){
+  res.loadview('score/index.html');
+});
+
 //我的信息
 
 router.use('/message',function(req,res,next){

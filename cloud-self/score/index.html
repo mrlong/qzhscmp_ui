@@ -1,0 +1,179 @@
+<% include ../nav.html %>
+  
+<style>
+  
+  #wincentext{
+    margin-top: 10px; 
+  }
+  
+  #userinfo img{
+    margin-top: 8px;
+    width: 100px;
+    height: 100px;
+  }
+  
+  #userinfo strong{
+    font-size: 18px; 
+  }
+  
+  #userinfo small{
+    margin-left: 100px;
+    font-size: 15px;
+  }
+  
+  #prog{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  #prog strong{
+    color: blue;  
+  }
+  
+  #rluehead{
+    margin-top: 50px; 
+    
+  }
+  
+  #rluehead img{
+    width: 180px;
+    height: 40px;
+  }
+  
+  #rluehead .line{
+    margin-top: 5px;
+    border-bottom: 1px solid #1be4f5;   
+  }
+  
+  #rluetable {
+    margin-top: 10px; 
+  }
+  
+</style>  
+<script>
+  changeNavActive('/self/score');
+  $(document).ready(function(){
+    $('[data-toggle="popover"]').popover('show');
+  
+  });
+</script>
+  
+<div id="wincentext">
+  <div class="row" id="userinfo">
+  
+    <div class="col-md-2">
+      <img class="center-block" src="/img/default.png"/>  
+    </div>
+    
+    <div class="col-md-10">
+      <div>
+        <strong>张凯</strong>   <small>等级： <b class="text-danger">6</b> 级</small>  <small>经验值：<b class="text-danger">650</b></small>
+      </div>
+        
+      <div id="prog">
+        <strong>LV6</strong> <strong class="pull-right">LV7</strong>
+        <div class="progress" data-toggle="popover" data-placement="bottom" 
+                data-content="距离下次升级还剩 250 经验">
+          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" 
+               style="width: 30%" >
+            <span class="sr-only" >20% Complete</span>
+          </div>
+        </div>  
+        
+
+        
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+  
+<div id="rluehead">
+  <img src="/img/score-1.png" />
+  <div class="line"></div>
+</div>
+
+<div id="rluetable">
+  <table class="table table-hover table-condensed table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>任务</th>
+        <th>积分</th>
+        <th>经验值</th>
+        <th>每日上限次数</th>
+        <th>每日积分上限</th>
+        <th>每日经验上限</th>
+      </tr>
+    
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>首次登录</td>
+        <td class="tc">+20</td>
+        <td class="tc">+20</td>
+        <td>一次性获取</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>完善个人资料</td>
+        <td class="tc">+30</td>
+        <td class="tc">+30</td>
+        <td>一次性获取</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>绑定微信</td>
+        <td class="tc">+30</td>
+        <td class="tc">+30</td>
+        <td>一次性获取</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>4</td>
+        <td>网页登录</td>
+        <td class="tc">+10</td>
+        <td class="tc">+10</td>
+        <td class="tr">1</td>
+        <td class="tr">10</td>
+        <td class="tr">10</td>
+      </tr>
+      
+      
+      <tr>
+        <td>5</td>
+        <td>客户端登录</td>
+        <td class="tc">+10</td>
+        <td class="tc">+10</td>
+        <td class="tr">1</td>
+        <td class="tr">10</td>
+        <td class="tr">10</td>
+      </tr>
+      
+      
+      <tr>
+        <td>6</td>
+        <td>上传文件</td>
+        <td class="tc">+10</td>
+        <td class="tc">+10</td>
+        <td class="tr">2</td>
+        <td class="tr">20</td>
+        <td class="tr">20</td>
+      </tr>
+    
+    </tbody>
+  </table>
+</div>
+
+  
+<% include ../footer.html %>
