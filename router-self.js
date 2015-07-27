@@ -65,7 +65,28 @@ router.use('/db',function(req,res,next){
   res.loadview('db/index.html');
 });
 
+//回标
+router.use('/hb/add-1',function(req,res,next){
+  res.loadview('hb/add-1.html');
+});
 
+router.use('/hb/add-2',function(req,res,next){
+  res.loadview('hb/add-2.html');
+});
+
+
+router.use('/hb/add-3',function(req,res,next){
+  res.loadview('hb/add-3.html');
+});
+
+router.use('/hb/again/:guid',function(req,res,next){
+  res.loadview('hb/again.html');
+});
+
+
+router.use('/hb',function(req,res,next){
+  res.loadview('hb/index.html');
+});
 
 
 

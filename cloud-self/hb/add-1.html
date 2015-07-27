@@ -1,0 +1,111 @@
+<% include ../nav.html %>
+<script src="/js/bootstrap3-validation.js"></script>
+
+<script>
+  
+  
+  
+  $(document).ready(function(){
+    $("#gcfl-win").hide();
+    $("form").validation({icon:true});
+    changeNavActive('/self/hb');
+    $('[data-toggle="tooltip"]').tooltip();
+    
+
+    
+    $("#createxm").on('click',function(){
+      
+      if ($("form").valid(this,"内容不完整!")==false){
+        return false;
+      };
+      
+    });
+    
+    
+  });
+  
+  
+</script>
+  
+<style>
+  .setp .nav .active span{
+    background-color:#337ab7; 
+  }
+  .setp .nav .active {
+    border-bottom: 1px solid #97C3E8; 
+  }
+  .setp .nav {
+    border-bottom: 1px solid #eee; 
+  }
+  
+  .stpconent{
+    margin-top: 50px; 
+  }
+  
+
+  
+</style>
+  
+
+
+<div>
+  <div class ="setp">
+      <ul class="nav  nav-justified">
+        <li><h2>新建回标项目</h2></li>
+        <li id='nav1' role="presentation" class="active"><a href="#"><span class="badge">1</span>项目基本信息</a></li>
+        <li id='nav2' role="presentation" ><a href="#"><span class="badge">2</span>导入标底</a></li>
+        <li id='nav3' role="presentation"><a href="#"><span class="badge">3</span>导入投标</a></li>
+      </ul>
+  </div>
+  
+  
+<!-- 第一步 -->
+  <div id="stp1" class="stpconent">
+ 
+  <form class="form-horizontal" method="post" action="/self/hb/add-2">
+    <div class="form-group">
+      <label for="clmc" class="col-sm-2 control-label">项目名称</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="clmc" name="xmmc" check-type="required">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ggxh" class="col-sm-2 control-label">项目编码</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="ggxh" name="xmbm" >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="zxdw" class="col-sm-2 control-label">建设单位</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="zxdw" name="zxdw" >
+      </div>
+    </div>
+
+
+
+
+    
+    
+    <hr>
+    <div class="pull-right">
+      <button type="submit" id="createxm" class="btn btn-primary">下一步</button>
+    </div>
+    
+    </form>
+    
+  </div>
+
+        
+</div>  
+
+  
+
+  
+  
+  
+  
+<% include ../footer.html %>
+  

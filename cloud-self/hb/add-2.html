@@ -1,0 +1,283 @@
+<% include ../nav.html %>
+<script src="/js/bootstrap3-validation.js"></script>
+
+<script>
+  
+  
+  
+  $(document).ready(function(){
+    $("#yungc").hide();
+     $("#files").hide();
+    $("form").validation({icon:true});
+    changeNavActive('/self/hb');
+    $('[data-toggle="tooltip"]').tooltip();
+    
+    $(".source").on('click',function(){
+      var that = $(this);
+      
+      if (that.attr('id')=='source1'){
+        $("#yungc").show();
+        $("#files").hide();
+      }
+      else{
+        $("#yungc").hide();
+        $("#files").show();
+      };
+      
+    });
+    
+    $("#selectfile").on('click',function(){
+      
+      if ($("form").valid(this,"内容不完整!")==false){
+        return false;
+      };
+      
+      if (document.getElementById('source1').checked==false && document.getElementById('source2').checked==false){
+        alert('请选择数据来源');
+        return false;  
+      };
+
+      if (document.getElementById('source2').checked==true){
+        var files = $('#file')[0].files; 
+        if (files.length==0) {    
+          alert('请选择要导入的excel文件');
+          return false;
+        }
+      }
+      else{
+        if(!$("#yungcfile").attr('gcguid')){
+          alert('请选择平台工程文件');
+          return false;
+        };
+      };
+      
+      //下就是不后台了。
+      
+
+    });
+    
+    
+  });
+  
+  
+</script>
+  
+<style>
+  .setp .nav .active span{
+    background-color:#337ab7; 
+  }
+  .setp .nav .active {
+    border-bottom: 1px solid #97C3E8; 
+  }
+  .setp .nav {
+    border-bottom: 1px solid #eee; 
+  }
+  
+  .stpconent{
+    margin-top: 50px; 
+  }
+  
+  #files{
+    margin-top: 60px; 
+  }
+  
+  #yungc{
+    margin-top: 60px;  
+  }
+  
+</style>
+  
+
+
+<div>
+  <div class ="setp">
+      <ul class="nav  nav-justified">
+        <li><h2>新建回标项目</h2></li>
+        <li id='nav1' role="presentation" ><a href="#"><span class="badge">1</span>项目基本信息</a></li>
+        <li id='nav2' role="presentation" class="active"><a href="#"><span class="badge">2</span>导入标底</a></li>
+        <li id='nav3' role="presentation"><a href="#"><span class="badge">3</span>导入投标</a></li>
+      </ul>
+  </div>
+  
+  
+<!-- 第二步 -->
+  <div id="stp2" class="stpconent">
+ 
+  <form class="form-horizontal" method="post" action="/self/hb/add-3">
+    <div class="form-group">
+      <label for="clmc" class="col-sm-2 control-label">数据来源</label>
+      <div class="col-sm-8">
+        <label class="radio-inline">
+          <input type="radio" name="source" id="source1" class="source" value="平台"> 平台工程
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="source" id="source2" class="source"  value="excel"> Excel
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group" id="files">
+      <label for="file" class="col-sm-2 control-label">文件</label>
+      <div class="col-sm-8">
+        <input type="file" id="file" >
+      </div>
+    </div>
+    
+    <div class="form-group" id="yungc">
+      <label for="ggxh" class="col-sm-2 control-label">平台工程</label>
+      <div class="col-sm-8">
+        <div class="input-group">
+          <input type="hidden" name="gcguid" id="gcguid">
+          <input type="text" class="form-control" placeholder="请点后面选择" id="yungcfile">
+          <span class="input-group-btn">
+            <button class="btn btn-info" type="button" data-toggle="modal" data-target=".selectproject" data-gcid="gcinfo1">选择平台工程</button>
+          </span>
+        </div>
+      </div>
+    </div>
+    
+
+    <hr>
+    <div class="pull-right">
+      <button type="submit" id="selectfile" class="btn btn-primary">下一步</button>
+    </div>
+    
+    </form>
+    
+  </div>
+
+        
+</div>  
+
+  
+<!--弹出信息的内容------------------------------------------------------------->
+<script>
+  
+  function ontrclick(tid){
+    $('tbody .action').removeClass('action');
+    $('#' + tid).addClass('action');
+    $("#errormsg").text('');
+  };
+  
+  
+  
+  $(document).ready(function(){
+    $('.selectproject').on('show.bs.modal',function(event){
+      var button = $(event.relatedTarget);
+      var gcid = button.data('gcid');  //工程1 
+      var modal = $(this);
+      
+       $('#dosel').attr('gcid',gcid);
+
+      //写入工程列表
+      modal.find('tbody').html("");
+      var rows = [{gcguid:'xxxxxx',gcmc:'xxxxx工程',zj:1235,sj:'2015-4-3'},{gcguid:'xxxxxx',gcmc:'xxxxx工程',zj:1533,sj:'2015-4-3'},
+                  {gcguid:'xxxxxx',gcmc:'xxxxx工程',zj:1243,sj:'2015-4-3'},{gcguid:'xxxxxx',gcmc:'xxxxx工程',zj:1633,sj:'2015-4-3'}];
+
+      for(var i=0;i<rows.length;i++){
+        var tid= 'tr' + i;
+        modal.find('tbody').append('<tr onclick="ontrclick(\''  + tid + '\')" id=' + tid + ' gcguid="' + rows[i].gcguid  + '">' + '<td>' + parseInt(i+1) +'</td>' + 
+                                    '<td>' + rows[i].gcmc + '</td>' +
+                                    '<td>' + rows[i].zj + '</td>' + 
+                                    '<td>' + rows[i].sj + '</td>' +
+                                   '</tr>');
+      };
+    });
+    
+    $('#dosel').on('click',function(){
+      var that = $(this);
+      var gcid = that.attr('gcid');
+      if($('tbody .action').length==0){
+        $("#errormsg").text('请选择工程项目');  
+        return false;
+      };
+      $('.selectproject').modal('hide');
+      var tr = $('tbody .action');
+      
+      $('#yungcfile').val(tr.find('td:eq(1)').text());
+      $('#yungcfile').attr('gcguid',tr.attr('gcguid'));
+      $('#gcguid').val(tr.attr('gcguid'));
+    });
+    
+  });
+  
+</script>
+<style>
+  tr.action{
+    background-color:#97C3E8;
+  }
+  
+  #errormsg{
+    text-align: center;
+    font-size: 20px;
+  };
+  
+</style>  
+<div class="modal  selectproject"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">选择工程</h4>
+      </div>
+      <p id="errormsg" class="bg-danger"></p>
+      <div class="modal-body">
+        <div class="pull-right">
+          <div class="navbar-form navbar-left">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="查找内容..." width="200px">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </span>
+          </div><!-- /input-group -->
+          </div>
+        </div> 
+        
+        
+        <table class="table table-hover table-condensed table-bordered">
+          <thead>
+            <th>#</th>
+            <th>工程名称</th>
+            <th>总造价(万元)</th>
+            <th>修改时间</th>
+          </thead>    
+          <tbody>
+          
+          </tbody>
+        </table>
+        
+        
+        <div class="pager">
+          <div class="pagerbar">
+            <a class="first disabled" href="javascript:;" title="首页"></a>
+            <a class="disabled" href="javascript:;">上一页</a>
+            <a class="current" href="javascript:;">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <span class="ellipsis">…</span>
+            <a href="#">下一页</a>
+            <a class="last" href="#" title="末页">
+            </a><span class="addition"><span class="redirect">跳转到<input class="pn" value="2" name="pn" type="text" data-toggle="tooltip" data-placement="top" title="共10页">页<a class="go" href="javascript:;" onclick="var $pn=this.parentNode.getElementsByTagName('input')[0].value||1;$pn=/[^\d]/g.test($pn)?0:$pn;$pn=Math.min(Math.max($pn, 1),100);location.href='http://www.qzhyun.com/zhaopin/?dqs=070020&amp;curPage=$pn$'.replace(/\$pn\$/ig, $pn-1);return false;">确定</a></span></span>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="dosel" >确定</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end-->
+  
+
+  
+  
+  
+  
+<% include ../footer.html %>
+  
