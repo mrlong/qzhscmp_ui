@@ -1,38 +1,259 @@
 <% include nav.html %>
+<script src="/js/highcharts.js"></script>
+<!--<script src="/js/highcharts-3d.js"></script>-->
   
-<h1 class="page-header" style="margin-top:0px;">主页</h1>
-              
-<div class="row">
-  <div class="col-xs-6 col-md-4">
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <h3 class="panel-title" id="panel-title">统计1<a class="anchorjs-link" href="#panel-title"><span class="anchorjs-icon"></span></a></h3>
+<style>
+  #index-me{
+    border: 1px solid #f8f8f8; 
+    height: 332px;
+  }
+  #index-me img{
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+  }
+  
+  #index-name{
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 1px solid #f8f8f8;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  
+  #index-me .progress{
+    height: 10px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+  }
+  
+  #index-size{
+    font-size: 10px; 
+    margin-bottom: 15px;
+  }
+  
+  #index-deve .progress{
+    height: 20px;
+    margin-left: 30px;
+    margin-bottom: 15px;
+  }
+  
+  #index-chart{
+    border: 1px solid #f8f8f8; 
+  }
+  
+  #chartdraw{
+    height: 300px; 
+     border-bottom: 1px solid #97C3E8;
+  }
+  
+  #index-chart li{
+    margin-left: 20px; 
+  }
+  
+  #index-chart li.active{
+    background-color: #97C3E8;
+    
+    border-bottom: 1px solid #337ab7;
+  }
+  
+  #index-chart li.active a{
+    color: #fff;
+  }
+  
+  li a:hover{
+  color: #337ab7; 
+   text-decoration: none;
+  }
+
+  a:link {
+   text-decoration: none;
+  }
+  a:visited {
+   text-decoration: none;
+  }
+  a:hover {
+   text-decoration: none;
+  }
+  
+  .logs{
+    margin-top: 20px; 
+  }
+  
+  .logs .dl-horizontal dt {
+    text-align: left;
+    width: 70%;
+    font-weight:inherit;
+    
+  }
+  
+  .logs dl{
+    margin-bottom:15px; 
+  }
+  
+</style>
+  
+<script>
+  
+  //工程
+  function loadgcchart(){
+    var chart_1 = new Highcharts.Chart({
+        chart: {
+            renderTo: 'chartdraw',
+            margin: 35,
+        },
+        title: {text:null},
+        yAxis:{allowDecimals:false},
+        xAxis: {
+        
+            categories: ['05-13','05-14','05-15','05-16','05-17']
+        },
+        legend:{enabled:false},credits:{enabled:false},
+        series: [{
+            name:'次',
+            data: [['05-13',2],['05-14',7], ['05-15',10], ['05-16',12], ['07-17',1]] //这个数据需要ajax取出
+        }]
+    }); 
+  };
+  
+  //工程
+  function loadgcchart(){
+    var chart_1 = new Highcharts.Chart({
+        chart: {
+            renderTo: 'chartdraw',
+            margin: 35,
+        },
+        title: {text:null},
+        yAxis:{allowDecimals:false},
+        xAxis: {
+        
+            categories: ['05-13','05-14','05-15','05-16','05-17']
+        },
+        legend:{enabled:false},credits:{enabled:false},
+        series: [{
+            name:'次',
+            data: [['05-13',2],['05-14',7], ['05-15',10], ['05-16',12], ['07-17',1]] //这个数据需要ajax取出
+        }]
+    }); 
+  };
+  
+  //材料
+  function loadclchart(){
+    var chart_1 = new Highcharts.Chart({
+        chart: {
+            renderTo: 'chartdraw',
+            margin: 35,
+        },
+        title: {text:null},
+        yAxis:{allowDecimals:false},
+        xAxis: {
+        
+            categories: ['05-13','05-14','05-15','05-16','05-17']
+        },
+        legend:{enabled:false},credits:{enabled:false},
+        series: [{
+            name:'次',
+            data: [['05-13',4],['05-14',2], ['05-15',1], ['05-16',32], ['07-17',2]] //这个数据需要ajax取出
+        }]
+    }); 
+  };
+  
+  //指标
+  function loadzbchart(){
+    var chart_1 = new Highcharts.Chart({
+        chart: {
+            renderTo: 'chartdraw',
+            margin: 35,
+        },
+        title: {text:null},
+        yAxis:{allowDecimals:false},
+        xAxis: {
+            categories: ['05-13','05-14','05-15','05-16','05-17']
+        },
+        legend:{enabled:false},credits:{enabled:false},
+        series: [{
+            name:'次',
+            data: [['05-13',6],['05-14',7], ['05-15',9], ['05-16',8], ['07-17',9]] //这个数据需要ajax取出
+        }]
+    }); 
+  };
+  
+  
+  $(document).ready(function(){
+    loadgcchart();
+    
+    $(".chartbnt").on('click',function(){
+      var that = $(this);
+      that.parent().parent().find('.active').removeClass('active');
+      that.parent().addClass('active');
+      if (that.attr('id') == 'bnt-gc') loadgcchart();
+      if (that.attr('id') == 'bnt-cl') loadclchart();
+      if (that.attr('id') == 'bnt-zb') loadzbchart();
+    });
+  });
+  
+  
+  
+</script>
+  
+<div class="row" >
+  <div class="col-md-3" id="index-me">
+    <img  class="center-block" src="/img/default.png" />
+    <div id="index-name">张凯</div>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+        <span class="sr-only">40% Complete (success)</span>
       </div>
-      <div class="panel-body">
-        ...
+    </div>
+    <div id="index-size"><strong>268MB</strong>/1G</div>
+    <div id="index-deve">
+      
+      <span class="pull-left">5级</span>
+      <div class="progress" >
+      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        370/400
+      </div>
       </div>
     </div>
   </div>
-  <div class="col-xs-6 col-md-4">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h3 class="panel-title" id="panel-title"> 统计2<a class="anchorjs-link" href="#panel-title"><span class="anchorjs-icon"></span></a></h3>
-      </div>
-      <div class="panel-body">
-        ...
-      </div>
-    </div> 
+  
+  <div class="col-md-9" id="index-chart">
+    <div id="chartdraw"></div>
+    
+    <ul class="list-inline">
+      <li class="active"><a href="#" id="bnt-gc" class="chartbnt">工程</a></li>
+      <li  ><a href="#" id="bnt-cl" class="chartbnt">材料</a></li>
+      <li  ><a href="#" id="bnt-zb" class="chartbnt">指标</a></li>
+    </ul>
   </div>
-  <div class="col-xs-6 col-md-4">
-    <div class="panel panel-warning">
-      <div class="panel-heading">
-        <h3 class="panel-title" id="panel-title">统计3<a class="anchorjs-link" href="#panel-title"><span class="anchorjs-icon"></span></a></h3>
-      </div>
-      <div class="panel-body">
-        ...
-      </div>
-    </div>  
-  </div>
+  
 </div>
+  
+<div class="logs">
+  <dl class="dl-horizontal">
+    <dt><span class="text-success">新增工程</span> xx人民医院扩建工程</dt>
+    <dd>2015-05-22 13：08</dd>
+  </dl>
+  
+  <dl class="dl-horizontal">
+    <dt><span class="text-success">新增材料</span> 闸阀   DN150</dt>
+    <dd>2015-05-22 13：08</dd>
+  </dl>
+  
+  <dl class="dl-horizontal">
+    <dt><span class="text-primary">上传工程</span>  xx人民医院扩建工程</dt>
+    <dd>2015-05-22 13：08</dd>
+  </dl>
+    
+  <dl class="dl-horizontal">
+    <dt><span class="text-primary">上传工程</span>  xx中心花园扩建工程</dt>
+    <dd>2015-05-22 13：08</dd>
+  </dl>
+    
+  
+  
+</div>
+  
   
 <% include footer.html %>
