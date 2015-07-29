@@ -134,7 +134,7 @@ router.use('/basic',function(req,res,next){
 
 
 router.use('/',function(req,res,next){
-  res.loadview('index.html');
+  res.loadview('index/index.html');
 });
 
 
