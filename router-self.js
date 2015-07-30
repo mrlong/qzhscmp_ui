@@ -125,6 +125,12 @@ router.use('/basic/add',function(req,res,next){
 router.use('/basic/edit',function(req,res,next){
   res.loadview('basic/edit.html');
 });
+
+router.use('/basic/import',function(req,res,next){
+  res.loadview('basic/import.html');
+});
+
+
 router.use('/basic',function(req,res,next){
   res.loadview('basic/index.html');
 });
