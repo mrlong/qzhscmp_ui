@@ -6,6 +6,18 @@
 
     changeNavActive('/self/basic');
     
+    $("#savetodb").on('click',function(){
+    
+      
+      $.alert({
+        title: '提示!',
+        content: '你导入的excel格式不正确',
+        animation:'none',
+        confirmButton: '确定',
+        confirmButtonClass: 'btn-primary'
+      });
+      
+    });
   
   });
     
