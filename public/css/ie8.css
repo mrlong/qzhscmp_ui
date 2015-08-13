@@ -12,3 +12,10 @@
 /*  border-bottom:  transparent 2px solid;*/
 }
 
+
+/*解决 jquery-confirm.js 弹出窗口不支持ie8的问题*/
+.jconfirm-bg{
+  background-color:#000; 
+  opacity:0.5;
+  filter:alpha(opacity=50);
+}
