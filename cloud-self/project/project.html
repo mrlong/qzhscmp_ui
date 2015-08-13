@@ -9,6 +9,26 @@
     changeNavActive('/self/project');
     $('[data-toggle="tooltip"]').tooltip();
     
+    //删除工程
+    $("#delpro").on('click',function(){
+        
+      $.confirm({
+        title: '删除提示!',
+        icon: 'glyphicon glyphicon-question-sign',
+        content: '一但删除无法恢复，确认要删除吗!',
+        confirmButton: '确定删除',
+        cancelButton: '取消删除',
+        confirmButtonClass: 'btn-danger',
+        keyboardEnabled: true,
+        animation:'none',
+        confirm: function(){
+          alert('Confirmed!');
+        },
+        cancel: function(){
+          alert('Canceled!')
+        }
+      });
+    });
   });
   
   
@@ -62,7 +82,7 @@
         <td class="tc">34mb</td>
         <td>一分钟之前</td>
         <td class="tc"><a href="/self/project/detail/xxx-xxx-xxx-xxxx" data-toggle="tooltip" title="" data-original-title="工程的附件、保存历史、简约的组价情况">概况</a>
-        <a href="#" data-toggle="tooltip" title="" data-original-title="弹出与预算软件一样的浏览界面">组价</a></td>
+        <a href="#" data-toggle="tooltip" title="" data-original-title="弹出与预算软件一样的浏览界面">组价</a> <a href="#" id="delpro">删除</a> </td>
       </tr>
       <tr>
         <th scope="row">2</th>
@@ -70,7 +90,7 @@
         <td class="tr">23233.2390</td>
         <td class="tc">159kb</td>
         <td>2015-05-23 12:23</td>
-        <td class="tc"><a href="#">概况</a> <a href="#">组价</a></td>
+        <td class="tc"><a href="#">概况</a> <a href="#">组价</a> <a href="#">删除</a></td>
       </tr>
       <tr>
         <th scope="row">3</th>
@@ -78,7 +98,7 @@
         <td class="tr">231.2345</td>
         <td class="tc">342kb</td>
         <td>2015-04-23 12:23</td>
-        <td class="tc"><a href="#">概况</a> <a href="#">组价</a></td>
+        <td class="tc"><a href="#">概况</a> <a href="#">组价</a> <a href="#">删除</a></td>
       </tr>
     </tbody>
   </table>
