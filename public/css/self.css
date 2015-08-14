@@ -156,3 +156,9 @@ form button.btn-primary{
     color: #337ab7;  
 }
 
+/*必填的项前面加红色的*号*/
+.form-group label strong{
+  color: red;
+  margin-right: 4px;
+}
+

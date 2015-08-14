@@ -27,12 +27,18 @@
 </script>
   
 <style>
-  .setp .nav .active span{
+  
+  .setp .nav .over span{
     background-color:#337ab7; 
   }
-  .setp .nav .active {
-    border-bottom: 1px solid #97C3E8; 
+  
+  .setp .nav .active span{
+    background-color:red; 
   }
+  .setp .nav .active {
+    border-bottom: 1px solid red; 
+  }
+  
   .setp .nav {
     border-bottom: 1px solid #eee; 
   }
@@ -60,8 +66,8 @@
   <div class ="setp">
       <ul class="nav  nav-justified">
         <li><h2>生成指标</h2></li>
-        <li id='nav1' role="presentation" ><a href="/self/zb/create"><span class="badge">1</span>选择工程</a></li>
-        <li id='nav2' role="presentation" ><a href="/self/zb/create/2/xxxx"><span class="badge">2</span>完善工程信息</a></li>
+        <li id='nav1' role="presentation" class="over" ><a href="/self/zb/create"><span class="badge">1</span>选择工程</a></li>
+        <li id='nav2' role="presentation" class="over"><a href="/self/zb/create/2/xxxx"><span class="badge">2</span>完善工程信息</a></li>
         <li id='nav3' role="presentation" class="active"><a href="#"><span class="badge">3</span>设置节点信息</a></li>
       </ul>
   </div>
