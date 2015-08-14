@@ -5,6 +5,40 @@
     padding: 30px;  
   }
   
+  .mainbody a {
+    color: #333  ; 
+  }
+  
+  .mainbody a.read {
+    color: #999  ; 
+  }
+  
+  .mainbody a:hover{
+   color: #337ab7; 
+   text-decoration: none;
+  }
+  
+  th.state-column{
+    border: #ddd 0px solid;
+  }
+  
+  td.state-column{
+    width: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  
+  td .state-unread{
+    font-size: 16px;
+    color: #428bca; 
+  }
+  
+  
+  
+
+  
+
+  
 </style>  
 <script>
   changeNavActive('/self/message');
@@ -18,7 +52,6 @@
       var modal = $(this)
       modal.find('#message-text').text(recipient);
     });
-    
   });
 </script>
 
@@ -51,7 +84,8 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>信息</th>
+        <th class="state-column"></th>
+        <th class="state-column">信息</th>
         <th>来源</th>       
         <th>时间</th>
         <th>操作</th>
@@ -60,16 +94,18 @@
 
     <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td><span class="label label-info">已读</span> <a href="#" data-toggle="modal" data-target=".messageinfo" data-text="快乐每从辛苦得，便宜多自吃亏来。" data-msgid="12">你已注册成功，你保存好你的账号与密码。</a></td>
+        <td scope="row">1</td>
+        <td class="state-column"></td>
+        <td> <a href="#" data-toggle="modal" data-target=".messageinfo" data-text="快乐每从辛苦得，便宜多自吃亏来。" data-msgid="12" class="read">你已注册成功，你保存好你的账号与密码。</a></td>
         <td>系统</td>
         
         <td>一分钟之前</td>
         <td></td>
       </tr>
       <tr>
-        <th scope="row">2</th>
-        <td><span class="label label-warning">未读</span> www企业邀请你加入</td>
+        <td scope="row">2</td>
+        <td class="state-column"><span class="state-unread">●</span></td>
+        <td><a href="#">www企业邀请你加入</a</td>
         <td>系统</td>
         
         <td>2015-05-23 12:23</td>
@@ -77,7 +113,8 @@
       </tr>
       <tr>
         <th scope="row">3</th>
-        <td><span class="label label-info">已读</span> 你的密码修改成功。</td>
+        <td class="state-column"></td>
+        <td> <a href="#" class="read">你的密码修改成功。</a> </td>
         <td>系统信息</td>
         
         <td>2015-04-23 12:23</td>
@@ -86,7 +123,8 @@
       
       <tr>
         <th scope="row">4</th>
-        <td><span class="label label-info">已读</span> 我请你k歌。</td>
+        <td class="state-column"></td>
+        <td> <a href="#" class="read"> 我请你k歌。</a></td>
         <td>龙三少</td>
         <td>2015-04-23 12:23</td>
         <td></td>
